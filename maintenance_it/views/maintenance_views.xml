@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+      <!-- form view extensions -->
+      <record id="hr_equipment_view_form_inherit_maintenance_it" model="ir.ui.view">
+        <field name="name">equipment.form</field>
+        <field name="inherit_id" ref="maintenance.hr_equipment_view_form"/>
+        <field name="model">maintenance.equipment</field>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='owner_user_id']" position="after">
+              <field name="is_it_equipment" string="IT equipment"/>
+              <field name="primary_ip" string="IP address" attrs="{'invisible': [('is_it_equipment', '!=', True)]}"/>
+              <field name="primary_mac" string="MAC address" attrs="{'invisible': [('is_it_equipment', '!=', True)]}"/>
+              <field name="primary_domain" string="Domain" attrs="{'invisible': [('is_it_equipment', '!=', True)]}"/>
+            </xpath>
+        </field>
+      </record>
+  </data>
+</odoo>
