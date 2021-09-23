@@ -47,13 +47,14 @@ class MaintenanceEquipment(models.Model):
     def _ip_constraint(self):
         '''Constrain IP addresses to valid IPv4 or IPv6 addresses'''
         for record in self:
-            try:
-                ipaddress.ip_address(record.primary_ip)
-            except ValueError as e:
-                raise ValidationError(str(e))
+            if record.primary_ip:
+                try:
+                    ipaddress.ip_address(record.primary_ip)
+                except ValueError as e:
+                    raise ValidationError(str(e))
     @api.constrains("primary_mac")
     def _mac_constraint(self):
         '''Constrain MAC addresses to valid mac addresses'''
         for record in self:
-            if not REGEX_MAC.match(record.primary_mac):
-                raise ValidationError("Input address {} not a valid MAC address. Check spelling, and leading and trailing white spaces.")
+            if record.primary_mac and not REGEX_MAC.match(record.primary_mac):
+                raise ValidationError("Input address {} not a valid MAC address. Check spelling, and leading and trailing white spaces.".format(record.primary_mac))
