@@ -25,6 +25,7 @@
 {
     "name": "Maintenance: equipment monitoring",
     "summary": "For other Odoo databases to monitor the status of their server.",
+    'category': 'Helpdesk',
     "author": "Vertel AB",
     "contributor": "",
     "maintainer": "Vertel AB",
