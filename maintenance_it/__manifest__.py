@@ -22,6 +22,7 @@
 {
     'name': 'Maintenance: IT',
     'summary': 'Add IT fields to the maintenance module.',
+    'category': 'Helpdesk',
     'author': 'Vertel AB',
     'contributor': '',
     'maintainer': 'Vertel AB',
