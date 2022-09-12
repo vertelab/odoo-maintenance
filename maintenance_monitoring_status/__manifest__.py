@@ -18,14 +18,13 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-
 # Copyright 2016-2018 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html)
-
 
 {
     'name': 'Maintenance: Monitoring Status',
     'summary': 'To answer with a json object the status of the database.',
+    'category': 'Helpdesk',
     'author': 'Vertel AB',
     'contributor': '',
     'maintainer': 'Vertel AB',
