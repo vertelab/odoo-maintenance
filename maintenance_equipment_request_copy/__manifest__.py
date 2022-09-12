@@ -22,6 +22,7 @@
 {
     'name': 'Maintenance: Equipment Request Copy',
     'summary': 'Wizard for copying request on one or more equipments',
+    'category': 'Helpdesk',
     'author': 'Vertel AB',
     'contributor': '',
     'maintainer': 'Vertel AB',
