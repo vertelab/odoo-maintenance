@@ -22,6 +22,7 @@
 {
     "name": "Maintenance: CVE",
     "summary": "Keep track of those CVEs",
+    'category': 'Helpdesk',
     "author": "Vertel AB",
     "contributor": "",
     "maintainer": "Vertel AB",
