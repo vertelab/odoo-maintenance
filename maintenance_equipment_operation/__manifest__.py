@@ -22,6 +22,7 @@
 {
     'name': 'Maintenance: Equipment Operation',
     'summary': 'Adds operation on equipment.',
+    'category': 'Helpdesk',
     'author': 'Vertel AB',
     'contributor': '',
     'maintainer': 'Vertel AB',
