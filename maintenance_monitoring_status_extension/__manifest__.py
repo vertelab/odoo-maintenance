@@ -25,6 +25,7 @@
 {
     'name': 'Maintenance: Server Monitoring',
     'summary': 'To answer with a json object with the load/diskspace of the server.',
+    'category': 'Helpdesk',
     'author': 'Vertel AB',
     'contributor': 'Mitchell Admin',
     'maintainer': 'Vertel AB',
