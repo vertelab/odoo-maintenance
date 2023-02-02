@@ -32,6 +32,7 @@
     'repository': 'https://github.com/vertelab/odoo-maintenance.git',
     'version': '14.0.1.0.0',
     # Version ledger: 14.0 = Odoo version. 1 = Major. Non regressionable code. 2 = Minor. New features that are regressionable. 3 = Bug fixes
+    'images': ['static/description/banner.png'], # 560x280 px.
     'license': 'AGPL-3',
     'website': 'https://vertel.se/apps/odoo-maintenance/maintenance_monitoring_status_extension',
     'description': """
@@ -48,3 +49,4 @@
     ],
     'installable': True,
 }
+# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

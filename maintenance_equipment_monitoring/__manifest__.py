@@ -23,19 +23,20 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html)
 
 {
-    "name": "Maintenance: equipment monitoring",
-    "summary": "For other Odoo databases to monitor the status of their server.",
+    'name': 'Maintenance: equipment monitoring',
+    'summary': 'For other Odoo databases to monitor the status of their server.',
     'category': 'Helpdesk',
-    "author": "Vertel AB",
-    "contributor": "",
-    "maintainer": "Vertel AB",
-    "repository": "https://github.com/vertelab/odoo-maintenance",
-    "version": "14.0.1.0.2",
+    'author': 'Vertel AB',
+    'contributor': '',
+    'maintainer': 'Vertel AB',
+    'repository': 'https://github.com/vertelab/odoo-maintenance',
+    'version': '14.0.1.0.2',
     # Version ledger: 14.0 = Odoo version. 1 = Major. Non regressionable code.
     # 2 = Minor. New features that are regressionable. 3 = Bug fixes
-    "license": "AGPL-3",
-    "website": "https://vertel.se/apps/odoo-maintenance/maintenance_equipment_monitoring",
-    "description": """
+    'images': ['static/description/banner.png'], # 560x280 px.
+    'license': 'AGPL-3',
+    'website': 'https://vertel.se/apps/odoo-maintenance/maintenance_equipment_monitoring',
+    'description': """
        The purpose of this module is to monitor other odoo databases to see the
        status of their server. In order to query other databases the need
        "maintenance_monitoring_status" or "maintenance_monitoring_status_extension" installed.
@@ -47,7 +48,7 @@
        There is also cron job called "Ping Remote Server" that will ping every
        60 minutes to all equipment that has "Is Monitored" field set to true.
     """,
-    "depends": ["maintenance", "maintenance_monitoring_status_extension"],
+    'depends': ["maintenance", "maintenance_monitoring_status_extension"],
     "data": [
         "security/ir.model.access.csv",
         "views/maintenance_view.xml",
@@ -56,3 +57,4 @@
     ],
     "installable": True,
 }
+# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
