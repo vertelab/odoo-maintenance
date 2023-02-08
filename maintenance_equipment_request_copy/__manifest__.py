@@ -33,7 +33,7 @@
     'license': 'AGPL-3',
     'website': 'https://vertel.se/apps/odoo-maintenance/maintenance_equipment_request_copy',
     'description': '',
-    "depends": ["maintenance"],
+    'depends': ['maintenance'],
     "data": [
         "security/ir.model.access.csv",
         "wizard/maintenance_views.xml",
