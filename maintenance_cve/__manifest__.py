@@ -35,7 +35,7 @@
     'description': """
     Generic tool to help an organization to keep track of CVEs and the work behind.
     """,
-    "depends": ["maintenance", "website", "portal"],
+    'depends': ['maintenance', 'website', 'portal'],
     "data": [
         "security/ir.model.access.csv",
         "views/maintenance_views.xml",
