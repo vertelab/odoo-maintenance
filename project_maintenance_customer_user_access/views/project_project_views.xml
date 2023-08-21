@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="edit_project" model="ir.ui.view">
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="maintenance_project.edit_project" />
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_view_equipment_ids']" position="attributes">
+                <attribute name="groups">base.group_user</attribute>
+            </xpath>
+
+            <xpath expr="//button[@name='action_view_maintenance_request_ids']" position="attributes">
+                <attribute name="groups">base.group_user</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

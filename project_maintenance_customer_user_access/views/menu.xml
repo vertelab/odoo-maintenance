@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem
+        id="maintenance.menu_maintenance_title"
+        name="Maintenance"
+        web_icon="maintenance,static/description/icon.png"
+        sequence="110" groups="base.group_user"/>
+</odoo>
