@@ -13,4 +13,18 @@
             </xpath>
         </field>
     </record>
+
+    <record id="view_project_kanban" model="ir.ui.view">
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="maintenance_project.view_project_kanban" />
+        <field name="arch" type="xml">
+            <xpath expr="//a[@name='action_view_equipment_ids']" position="attributes">
+                <attribute name="groups">base.group_user</attribute>
+            </xpath>
+
+            <xpath expr="//a[@name='action_view_maintenance_request_ids']" position="attributes">
+                <attribute name="groups">base.group_user</attribute>
+            </xpath>
+        </field>
+    </record>
 </odoo>
