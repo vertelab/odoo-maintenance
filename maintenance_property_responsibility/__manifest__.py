@@ -21,7 +21,7 @@
 
 {
     'name': 'Maintenance: Property Glue',
-    'version': '16.0.0.0.0',
+    'version': '0.1',
     # Version ledger: 14.0 = Odoo version. 1 = Major. Non regressionable code. 2 = Minor. New features that are regressionable. 3 = Bu>
     'summary': ' Glue module between odoo_property and maintenance.',
     # Categories can be used to filter modules in modules listing
