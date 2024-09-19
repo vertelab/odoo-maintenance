@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="equipment_details" name="Maintenance Equipment Details">
+        <t t-call="website.layout">
+            <div class="container">
+                <h1><t t-esc="equipment.name"/></h1>
+                    <t t-if="error_message">
+                    <div class="alert alert-danger" role="alert">
+                        <t t-esc="error_message"/>
+                    </div>
+                </t>
+                
+                
+                
+                <p>Category: <t t-esc="equipment.category_id.name"/></p>
+                <p>Serial Number: <t t-esc="equipment.serial_no"/></p>
+                <p>Model: <t t-esc="equipment.model"/></p>
+               
+                
+                <t t-if="employee or department">
+                    <h2>Equipment Assigned</h2>
+                    <t t-if="employee">
+                        <p>Employee: <t t-esc="employee.name"/></p>
+                    </t>
+                    <t t-if="department">
+                        <p>Department: <t t-esc="department.name"/></p>
+                    </t>
+                     <p>Assign Date: <t t-esc="equipment.assign_date"/></p>
+                    
+                    <h3>Unassign Equipment</h3>
+                    <form action="/maintenance/equipment/unassign" method="post">
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                        <input type="hidden" name="equipment_id" t-att-value="equipment.id"/>
+                        <div class="form-group">
+                            <label for="pin">Enter your 4-digit PIN to unassign:</label>
+                            <input type="text" class="form-control" id="pin" name="pin" maxlength="4" pattern="\d{4}" required="required"/>
+                        </div>
+                        <button type="submit" class="btn btn-warning">Unassign Equipment</button>
+                    </form>
+                </t>
+                <t t-else="">
+                    <h2>Assign Equipment</h2>
+                    <form action="/maintenance/equipment/assign" method="post">
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                        <input type="hidden" name="equipment_id" t-att-value="equipment.id"/>
+                        <div class="form-group">
+                            <label for="pin">Enter 4-digit Employee PIN:</label>
+                            <input type="text" class="form-control" id="pin" name="pin" maxlength="4" pattern="\d{4}" required="required"/>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Assign Equipment</button>
+                    </form>
+                </t>
+            </div>
+        </t>
+    </template>
+    
+    
+     <template id="equipment_not_found" name="Equipment Not Found">
+        <t t-call="website.layout">
+            <div class="container">
+                <h1>Equipment Not Found</h1>
+                <p>Sorry, the requested equipment could not be found.</p>
+            </div>
+        </t>
+    </template>
+
+</odoo>
