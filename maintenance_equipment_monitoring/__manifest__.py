@@ -48,12 +48,14 @@
        There is also cron job called "Ping Remote Server" that will ping every
        60 minutes to all equipment that has "Is Monitored" field set to true.
     """,
-    'depends': ["maintenance", "maintenance_monitoring_status_extension"],
+    'depends': ["maintenance", "maintenance_monitoring_status_extension","ai_agent"],
     "data": [
-        "security/ir.model.access.csv",
-        "views/maintenance_view.xml",
-        "views/maintenance_server_log_view.xml",
-        "data/cron.xml",
+        "data/ai_data.xml",
+        "views/maintenance_equipment_views.xml",
+        #"security/ir.model.access.csv",
+        #"views/maintenance_view.xml",
+        #"views/maintenance_server_log_view.xml",
+        #"data/cron.xml",
     ],
     "installable": True,
 }
