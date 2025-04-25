@@ -6,7 +6,10 @@ import json
 import werkzeug
 
 from odoo import http
-from odoo.addons.web.controllers.main import ensure_db
+# odoo 14:
+# from odoo.addons.web.controllers.main import ensure_db
+# odoo 18:
+from odoo.http import request, route, Controller
 
 
 class HealthCheckFilter(logging.Filter):
