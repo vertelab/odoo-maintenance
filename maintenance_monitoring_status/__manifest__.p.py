@@ -18,35 +18,34 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-
 # Copyright 2016-2018 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html)
 
 {
-    'name': 'Maintenance: Server Monitoring',
-    'summary': 'To answer with a json object with the load/diskspace of the server.',
-    'category': 'Maintenance',
+    'name': 'Maintenance: Monitoring Status',
+    'summary': 'To answer with a json object the status of the database.',
+    'category': 'Helpdesk',
     'author': 'Vertel AB',
-    'contributor': 'Mitchell Admin',
+    'contributor': '',
     'maintainer': 'Vertel AB',
     'repository': 'https://github.com/vertelab/odoo-maintenance.git',
     'version': '1.0',
     # Version ledger: 14.0 = Odoo version. 1 = Major. Non regressionable code. 2 = Minor. New features that are regressionable. 3 = Bug fixes
     'images': ['static/description/banner.png'], # 560x280 px.
     'license': 'AGPL-3',
-    'website': 'https://vertel.se/apps/odoo-maintenance/maintenance_monitoring_status_extension',
+    # 'website': 'https://www.camptocamp.com',
+    'website': 'https://vertel.se/apps/odoo-maintenance/maintenance_monitoring_status',
     'description': """
-       This module is maintained from: https://github.com/vertelab/odoo-maintenance/
-
+       This module is maintained from: https://github.com/vertelab/odoo-maintenance/ \n 
+       until https://github.com/camptocamp/odoo-cloud-platform/tree/14.0/monitoring_status has lifted it.\n
+       Inspired by Camptocamp SA.\n
        
-       Purpose of the module is to answer with a json object with the load/diskspace of the server which this database is on. To query the database you need to go to the /monitoring/status url.
+       Purpose of this module is to answer with a json object the status of the database, on or off. To query the database you need to go to the /monitoring/status url.
        Url Syntax: http ://hostname/monitoring/status?db=databasename\n
        
-       In order for the database to be able to answer without being logged in on you need to change the odoo.conf and add this "maintenance_montitoring_status" to the server_wide_modules.
+       In order for the database to be able to answer without being logged in on you need to change the odoo.conf and add this module to the server_wide_modules.
     """,
-    'depends': ['maintenance_monitoring_status'],
-    'data': [
-    ],
+    'depends': ['base', 'web'],
+    'data': [],
     'installable': True,
 }
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
