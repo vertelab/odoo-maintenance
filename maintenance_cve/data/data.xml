@@ -1,0 +1,16 @@
+<odoo>
+    <data>
+        <record id="odoo_12_maintenance_tag" model="maintenance.tag">
+            <field name="name">Odoo 12</field>
+        </record>
+        <record id="odoo_13_maintenance_tag" model="maintenance.tag">
+            <field name="name">Odoo 13</field>
+        </record>
+        <record id="odoo_14_maintenance_tag" model="maintenance.tag">
+            <field name="name">Odoo 14</field>
+        </record>
+        <record id="odoo_15_maintenance_tag" model="maintenance.tag">
+            <field name="name">Odoo 15</field>
+        </record>
+    </data>
+</odoo>
