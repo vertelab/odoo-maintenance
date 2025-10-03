@@ -1,0 +1,60 @@
+<odoo>
+    <record id="maintenance_equipment_hierarchy_view" model="ir.ui.view">
+        <field name="name">maintenance.equipment.hierarchy.view</field>
+        <field name="model">maintenance.equipment</field>
+        <field name="arch" type="xml">
+            <hierarchy child_field="child_ids" js_class="maintenance_equipment_hierarchy" icon="fa-users" draggable="1">
+                <field name="name" />
+                <field name="serial_no" />
+                <templates>
+                    <t t-name="hierarchy-box">
+                        <div class="d-flex flex-column text-center">
+                            <div class="d-flex">
+                                <field class="fw-bold w-100" name="name" />
+                            </div>
+                            <field name="serial_no"/>
+                        </div>
+                    </t>
+                </templates>
+            </hierarchy>
+        </field>
+    </record>
+
+    <record id="maintenance.hr_equipment_action" model="ir.actions.act_window">
+        <field name="view_mode">kanban,list,hierarchy,form</field>
+    </record>
+
+    <record id="action_maintenance_equipment_org_chart" model="ir.actions.act_window">
+        <field name="name">Equipment Hierarchy</field>
+        <field name="res_model">maintenance.equipment</field>
+        <field name="view_mode">hierarchy,kanban,list,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="view_id" ref="maintenance_equipment_hierarchy_view"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Add a new equipment
+            </p>
+        </field>
+    </record>
+
+
+    <record id="maintenance_equipment_view_form_inherit_org_chart" model="ir.ui.view">
+        <field name="name">maintenance.equipment.view.form.inherit.org.chart</field>
+        <field name="model">maintenance.equipment</field>
+        <field name="inherit_id" ref="maintenance.hr_equipment_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="%(maintenance_equipment_hierarchy_view.action_maintenance_equipment_org_chart)d"
+                    icon="fa-sitemap"
+                    type="action"
+                    context="{'hierarchy_res_id': id}"
+                    invisible="not child_ids and not parent_id">
+                    <div class="o_stat_info">
+                        <span class="o_stat_text">Hierarchy</span>
+                    </div>
+                </button>
+            </xpath>
+        </field>
+    </record>
+</odoo>
