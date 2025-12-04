@@ -1,0 +1,39 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* maintenance_equipment_monitoring
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0-20251202\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-12-04 12:19+0000\n"
+"PO-Revision-Date: 2025-12-04 14:16+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#. module: maintenance_equipment_monitoring
+#: model:ir.model,name:maintenance_equipment_monitoring.model_maintenance_equipment
+msgid "Maintenance Equipment"
+msgstr "Underhållsutrustning"
+
+#. module: maintenance_equipment_monitoring
+#: model:ir.model.fields,field_description:maintenance_equipment_monitoring.field_maintenance_equipment__quest_ids
+msgid "Quest"
+msgstr "Uppdrag"
+
+#. module: maintenance_equipment_monitoring
+#: model_terms:ir.ui.view,arch_db:maintenance_equipment_monitoring.server_maintenance_form_view
+msgid "Quests"
+msgstr "Uppdrag"
+
+#. module: maintenance_equipment_monitoring
+#. odoo-python
+#: code:addons/maintenance_equipment_monitoring/models/maintenance.py:0
+msgid "Server Log - %s"
+msgstr "Serverlogg - %s"
