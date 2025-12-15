@@ -14,7 +14,7 @@ class MaintenanceController(CustomerPortal):
     def maintenance_security_list(self, page=1, date_begin=None, date_end=None, sortby=None, filterby=None, **kw):
 
         values = {} # self._prepare_portal_layout_values()
-        maintenance_id = request.env['maintenance.request']
+        maintenance_id = request.env['maintenance.request'].sudo()
 
         domain = [
             ('website_published', '=', True), ('is_cve', '=', True),
@@ -68,16 +68,16 @@ class MaintenanceController(CustomerPortal):
         })
         return request.render("maintenance_cve.portal_cve_maintenance_list", values)
 
-    @http.route(['/security/cve/<int:maintenance_id>', '/secruity/cve/<model("maintenance.request"):maintenance>'], auth='public', type='http', website=True) # 
-    def maintenance_security(self, maintenance=False, maintenance_id=False, **kw):
-        if not maintenance:
-            maintenace = request.env['maintenance.request'].sudo().browse(maintenance_id)
-        
-        if maintenace.exists():
+    @http.route(['/security/cve/<int:maintenance_id>'],
+                auth='public', type='http', website=True, sitemap=False)
+    def maintenance_security(self, maintenance_id=False, **kw):
+        maintenance = request.env['maintenance.request'].sudo().browse(maintenance_id)
+
+        if maintenance.exists():
             values = {
-                'maintenance': maintenace,
-                'main_object': maintenace,
+                'maintenance': maintenance,
+                'main_object': maintenance,
                 'edit_page': False
             }
-            
+
             return request.render("maintenance_cve.portal_cve_maintenance", values)
