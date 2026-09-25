@@ -36,18 +36,27 @@
     'images': ['static/description/banner.png'], # 560x280 px.
     'license': 'AGPL-3',
     'website': 'https://vertel.se/apps/odoo-maintenance/maintenance_equipment_monitoring',
-    'description': """
-       The purpose of this module is to monitor other odoo databases to see the
-       status of their server. In order to query other databases the need
-       "maintenance_monitoring_status" or "maintenance_monitoring_status_extension" installed.
+    'description': '''
+equipment monitoring
+====================
 
-       In order to specify which database you want to monitor you fill the Monitor URL
-       field on the equipment view and there is  a ping button to trigger this query.
-       The url needs to look like: http ://hostname/monitoring/status?db=databasename.
+    The purpose of this module is to monitor other odoo databases to see the
+           status of their server. In order to query other databases the need
+           "maintenance_monitoring_status" or "maintenance_monitoring_status_extension" installed.
 
-       There is also cron job called "Ping Remote Server" that will ping every
-       60 minutes to all equipment that has "Is Monitored" field set to true.
-    """,
+    In order to specify which database you want to monitor you fill the Monitor URL
+           field on the equipment view and there is  a ping button to trigger this query.
+           The url needs to look like: http ://hostname/monitoring/status?db=databasename.
+
+    There is also cron job called "Ping Remote Server" that will ping every
+           60 minutes to all equipment that has "Is Monitored" field set to true.
+
+    Features:
+
+        - Automation: Scheduled jobs: Ping Remote Server.
+        - UI Integration: Extends 3 view(s) in the Odoo interface.
+        - Extends Odoo: Builds on ai.quest, date, maintenance.equipment, maintenance.equipment.server.log.
+    ''',
     'depends': ["maintenance", "maintenance_monitoring_status_extension", "ai_agent"],
     "data": [
         "data/ai_data.xml",

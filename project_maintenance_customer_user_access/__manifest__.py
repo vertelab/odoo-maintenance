@@ -22,11 +22,18 @@
 {
     'name': 'Project: Project Maintenance Customer User Access',
     'version': '18.0.0.1.0',
-    'summary': 'Project Maintenance Customer User Access',
+    'summary': 'Project Maintenance Customer User Access.',
     'category': 'Project',
-    'description': """
-        Project Maintenance Customer User Access.
-    """,
+    'description': '''
+Project Maintenance Customer User Access
+========================================
+
+    Project Maintenance Customer User Access.
+
+    Features:
+
+        - UI Integration: Extends 2 view(s) in the Odoo interface.
+    ''',
     'author': 'Vertel AB',
     'website': 'https://vertel.se/apps/odoo-maintenance/project_maintenance_customer_user_access',
     'images': ['static/description/banner.png'],  # 560x280 px.

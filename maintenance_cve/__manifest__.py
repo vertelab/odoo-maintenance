@@ -21,7 +21,7 @@
 
 {
     'name': 'Maintenance: CVE',
-    'summary': 'Keep track of those CVEs',
+    'summary': 'Keep track of those CVEs.',
     'category': 'Helpdesk',
     'author': 'Vertel AB',
     'contributor': '',
@@ -32,9 +32,18 @@
     'images': ['static/description/banner.png'], # 560x280 px.
     'license': 'AGPL-3',
     'website': 'https://vertel.se/apps/odoo-maintenance/maintenance_cve',
-    'description': """
+    'description': '''
+CVE
+===
+
     Generic tool to help an organization to keep track of CVEs and the work behind.
-    """,
+
+    Features:
+
+        - Web integration: Exposes HTTP endpoints for external systems.
+        - UI Integration: Extends 2 view(s) in the Odoo interface.
+        - Extends Odoo: Builds on maintenance.request, maintenance.tag, maintenance.team.
+    ''',
     'depends': ['maintenance', 'website', 'portal'],
     "data": [
         "security/ir.model.access.csv",
