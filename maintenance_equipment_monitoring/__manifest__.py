@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    Odoo SA, Open Source Management Solution, third party addon
-#    Copyright (C) 2021- Vertel AB (<https://vertel.se>).
+#    Copyright (C) 2021- Vertel Sverige AB (<https://vertel.se>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -26,9 +26,9 @@
     'name': 'Maintenance: equipment monitoring',
     'summary': 'For other Odoo databases to monitor the status of their server.',
     'category': 'Helpdesk',
-    'author': 'Vertel AB',
+    'author': 'Vertel Sverige AB',
     'contributor': '',
-    'maintainer': 'Vertel AB',
+    'maintainer': 'Vertel Sverige AB',
     'repository': 'https://github.com/vertelab/odoo-maintenance',
     'version': '18.0.1.0.2',
     # Version ledger: 14.0 = Odoo version. 1 = Major. Non regressionable code.

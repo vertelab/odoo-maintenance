@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    Odoo SA, Open Source Management Solution, third party addon
-#    Copyright (C) 2022- Vertel AB (<https://vertel.se>).
+#    Copyright (C) 2022- Vertel Sverige AB (<https://vertel.se>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -22,24 +22,17 @@
 {
     'name': 'Project: Project Maintenance Customer User Access',
     'version': '18.0.0.1.0',
-    'summary': 'Project Maintenance Customer User Access.',
+    'summary': 'Project Maintenance Customer User Access',
     'category': 'Project',
-    'description': '''
-Project Maintenance Customer User Access
-========================================
-
-    Project Maintenance Customer User Access.
-
-    Features:
-
-        - UI Integration: Extends 2 view(s) in the Odoo interface.
-    ''',
-    'author': 'Vertel AB',
-    'website': 'https://vertel.se/apps/odoo-maintenance/project_maintenance_customer_user_access',
+    'description': """
+        Project Maintenance Customer User Access.
+    """,
+    'author': 'Vertel Sverige AB',
+    'website': 'https://vertel.se/apps/odoo-project/customer_project_user',
     'images': ['static/description/banner.png'],  # 560x280 px.
     'license': 'AGPL-3',
     'contributor': '',
-    'maintainer': 'Vertel AB',
+    'maintainer': 'Vertel Sverige AB',
     'repository': 'https://github.com/vertelab/odoo-project',
     'depends': ['customer_project_user', 'maintenance_project', 'maintenance'],
     'data': [
@@ -49,3 +42,4 @@ Project Maintenance Customer User Access
     ],
     'installable': True,
 }
+# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
