@@ -100,6 +100,14 @@ class MaintenanceEquipment(models.Model):
         string='Emergency Phone Type',
         domain=[('model_type', '=', 'emergency_phone')],
     )
+    p100 = fields.Char(
+        string='P100',
+        help='Phone number of the elevator GSM unit.',
+    )
+    sim_image = fields.Binary(
+        string='SIM Image',
+        help='Photo of the SIM card, so a technician can identify it on site.',
+    )
     has_machine_room = fields.Boolean(string='Machine Room', default=False)
 
     # ------------------------------------------------------------------
