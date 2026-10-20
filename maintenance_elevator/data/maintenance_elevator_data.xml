@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- ============================================================
+             Elevator reference data
+
+             Seed values covering the common Swedish market. Everything is
+             editable in Maintenance > Configuration > Elevator Reference Data.
+             ============================================================ -->
+
+        <record id="elevator_type_passenger" model="maintenance.elevator.type">
+            <field name="model_type">elevator</field>
+            <field name="name">Passenger Elevator</field>
+            <field name="code">P</field>
+            <field name="sequence">10</field>
+        </record>
+        <record id="elevator_type_freight" model="maintenance.elevator.type">
+            <field name="model_type">elevator</field>
+            <field name="name">Freight Elevator</field>
+            <field name="code">G</field>
+            <field name="sequence">20</field>
+        </record>
+        <record id="elevator_type_service" model="maintenance.elevator.type">
+            <field name="model_type">elevator</field>
+            <field name="name">Service Elevator</field>
+            <field name="code">S</field>
+            <field name="sequence">30</field>
+        </record>
+        <record id="elevator_type_hospital" model="maintenance.elevator.type">
+            <field name="model_type">elevator</field>
+            <field name="name">Hospital Elevator</field>
+            <field name="code">H</field>
+            <field name="sequence">40</field>
+        </record>
+        <record id="elevator_type_platform" model="maintenance.elevator.type">
+            <field name="model_type">elevator</field>
+            <field name="name">Platform Lift</field>
+            <field name="code">PL</field>
+            <field name="sequence">50</field>
+        </record>
+
+        <!-- Control systems -->
+        <record id="control_system_relay" model="maintenance.elevator.type">
+            <field name="model_type">control_system</field>
+            <field name="name">Relay Control</field>
+            <field name="sequence">10</field>
+        </record>
+        <record id="control_system_microprocessor" model="maintenance.elevator.type">
+            <field name="model_type">control_system</field>
+            <field name="name">Microprocessor Control</field>
+            <field name="sequence">20</field>
+        </record>
+        <record id="control_system_vvvf" model="maintenance.elevator.type">
+            <field name="model_type">control_system</field>
+            <field name="name">VVVF (Variable Voltage Variable Frequency)</field>
+            <field name="sequence">30</field>
+        </record>
+        <record id="control_system_hydraulic" model="maintenance.elevator.type">
+            <field name="model_type">control_system</field>
+            <field name="name">Hydraulic Control</field>
+            <field name="sequence">40</field>
+        </record>
+
+        <!-- Door types -->
+        <record id="car_door_center" model="maintenance.elevator.type">
+            <field name="model_type">car_door</field>
+            <field name="name">Center Opening</field>
+            <field name="sequence">10</field>
+        </record>
+        <record id="car_door_side" model="maintenance.elevator.type">
+            <field name="model_type">car_door</field>
+            <field name="name">Side Opening</field>
+            <field name="sequence">20</field>
+        </record>
+        <record id="car_door_telescopic" model="maintenance.elevator.type">
+            <field name="model_type">car_door</field>
+            <field name="name">Telescopic</field>
+            <field name="sequence">30</field>
+        </record>
+
+        <record id="shaft_door_swing" model="maintenance.elevator.type">
+            <field name="model_type">shaft_door</field>
+            <field name="name">Swing Door</field>
+            <field name="sequence">10</field>
+        </record>
+        <record id="shaft_door_sliding" model="maintenance.elevator.type">
+            <field name="model_type">shaft_door</field>
+            <field name="name">Sliding Door</field>
+            <field name="sequence">20</field>
+        </record>
+
+        <!-- Bearing configuration -->
+        <record id="bearing_top" model="maintenance.elevator.type">
+            <field name="model_type">bearing</field>
+            <field name="name">Top Bearing</field>
+            <field name="sequence">10</field>
+        </record>
+        <record id="bearing_pit" model="maintenance.elevator.type">
+            <field name="model_type">bearing</field>
+            <field name="name">Pit Bearing</field>
+            <field name="sequence">20</field>
+        </record>
+        <record id="bearing_both" model="maintenance.elevator.type">
+            <field name="model_type">bearing</field>
+            <field name="name">Top and Pit Bearing</field>
+            <field name="sequence">30</field>
+        </record>
+
+        <!-- Lubrication -->
+        <record id="lubrication_oil" model="maintenance.elevator.type">
+            <field name="model_type">lubrication</field>
+            <field name="name">Oil Lubricated</field>
+            <field name="sequence">10</field>
+        </record>
+        <record id="lubrication_grease" model="maintenance.elevator.type">
+            <field name="model_type">lubrication</field>
+            <field name="name">Grease Lubricated</field>
+            <field name="sequence">20</field>
+        </record>
+        <record id="lubrication_dry" model="maintenance.elevator.type">
+            <field name="model_type">lubrication</field>
+            <field name="name">Dry / Belt Drive</field>
+            <field name="sequence">30</field>
+        </record>
+
+        <!-- Emergency phone -->
+        <record id="emergency_phone_gsm" model="maintenance.elevator.type">
+            <field name="model_type">emergency_phone</field>
+            <field name="name">GSM Emergency Phone</field>
+            <field name="sequence">10</field>
+        </record>
+        <record id="emergency_phone_landline" model="maintenance.elevator.type">
+            <field name="model_type">emergency_phone</field>
+            <field name="name">Landline Emergency Phone</field>
+            <field name="sequence">20</field>
+        </record>
+        <record id="emergency_phone_alarm" model="maintenance.elevator.type">
+            <field name="model_type">emergency_phone</field>
+            <field name="name">Alarm Bell Only</field>
+            <field name="sequence">30</field>
+        </record>
+
+    </data>
+</odoo>

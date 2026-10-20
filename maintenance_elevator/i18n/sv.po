@@ -1,0 +1,735 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* maintenance_elevator
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-20 22:30+0000\n"
+"PO-Revision-Date: 2026-10-20 22:30+0000\n"
+"Last-Translator: Vertel Sverige AB\n"
+"Language-Team: Swedish\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: maintenance_elevator
+#: model_terms:ir.module.module,description:maintenance_elevator.module_maintenance_elevator
+msgid "- Eight sectioned technical documentation fields"
+msgstr "- Åtta sektionerade fält för teknisk dokumentation"
+
+#. module: maintenance_elevator
+#: model_terms:ir.module.module,description:maintenance_elevator.module_maintenance_elevator
+msgid "- Elevator flag and identity (manufacturing number, year, stops)"
+msgstr "- Hissflagga och identitet (tillverkningsnummer, år, antal stannplan)"
+
+#. module: maintenance_elevator
+#: model_terms:ir.module.module,description:maintenance_elevator.module_maintenance_elevator
+msgid "- Out-of-order tracking with reason and date"
+msgstr "- Avstängningsuppföljning med orsak och datum"
+
+#. module: maintenance_elevator
+#: model_terms:ir.module.module,description:maintenance_elevator.module_maintenance_elevator
+msgid "- Risk register with computed score and severity"
+msgstr "- Riskregister med beräknat riskvärde och allvarlighetsgrad"
+
+#. module: maintenance_elevator
+#: model_terms:ir.module.module,description:maintenance_elevator.module_maintenance_elevator
+msgid "- Statutory inspection tracking with due-date warning"
+msgstr "- Besiktningsuppföljning med varning för förfallodatum"
+
+#. module: maintenance_elevator
+#: model_terms:ir.module.module,description:maintenance_elevator.module_maintenance_elevator
+msgid "- Technical configuration (type, brand, control system, doors,"
+msgstr "- Teknisk konfiguration (typ, märke, styrsystem, dörrar,"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__active
+msgid "Active"
+msgstr "Aktiv"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__required_controls
+msgid "Additional Measures"
+msgstr "Ytterligare åtgärder"
+
+#. module: maintenance_elevator
+#: model_terms:ir.module.module,description:maintenance_elevator.module_maintenance_elevator
+msgid "An elevator is an asset in a maintenance system, not a location."
+msgstr "En hiss är en tillgång i underhållssystemet, inte en plats."
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__operational_status
+msgid "April"
+msgstr "April"
+
+#. module: maintenance_elevator
+#: model_terms:ir.ui.view,arch_db:maintenance_elevator.maintenance_elevator_type_views.xml.x
+msgid "Archived"
+msgstr "Arkiverad"
+
+#. module: maintenance_elevator
+#: model_terms:ir.ui.view,arch_db:maintenance_elevator.maintenance_equipment_views.xml.x
+msgid "Assessment"
+msgstr "Bedömning"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__assessment_date
+msgid "Assessment Date"
+msgstr "Bedömningsdatum"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__attachment_ids
+#: model_terms:ir.ui.view,arch_db:maintenance_elevator.maintenance_equipment_views.xml.x
+msgid "Attachments"
+msgstr "Bilagor"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__operational_status
+msgid "August"
+msgstr "Augusti"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__bearing_config_id
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__operational_status
+msgid "Bearing / Top / Pit"
+msgstr "Lager / Övre / Grop"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__tech_car
+#: model_terms:ir.ui.view,arch_db:maintenance_elevator.maintenance_equipment_views.xml.x
+msgid "Car"
+msgstr "Korg"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__car_door_type_id
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__operational_status
+msgid "Car Door Type"
+msgstr "Korgdörrtyp"
+
+#. module: maintenance_elevator
+#: model_terms:ir.ui.view,arch_db:maintenance_elevator.maintenance_equipment_views.xml.x
+msgid "Car specifications..."
+msgstr "Korgspecifikation..."
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__code
+msgid "Code"
+msgstr "Kod"
+
+#. module: maintenance_elevator
+#: model_terms:ir.ui.view,arch_db:maintenance_elevator.maintenance_equipment_views.xml.x
+msgid "Confirm"
+msgstr "Fastställ"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__operational_status
+#: model_terms:ir.ui.view,arch_db:maintenance_elevator.maintenance_equipment_views.xml.x
+msgid "Confirmed"
+msgstr "Fastställd"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__confirmed_by_id
+msgid "Confirmed By"
+msgstr "Fastställd av"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__confirmed_date
+msgid "Confirmed On"
+msgstr "Fastställd"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__consequence
+msgid "Consequence"
+msgstr "Konsekvens"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__tech_control_panel
+#: model_terms:ir.ui.view,arch_db:maintenance_elevator.maintenance_equipment_views.xml.x
+msgid "Control Panel"
+msgstr "Styrpanel"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__control_system_id
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__operational_status
+msgid "Control System"
+msgstr "Styrsystem"
+
+#. module: maintenance_elevator
+#: model_terms:ir.ui.view,arch_db:maintenance_elevator.maintenance_equipment_views.xml.x
+msgid "Control panel..."
+msgstr "Styrpanel..."
+
+#. module: maintenance_elevator
+#: model_terms:ir.ui.view,arch_db:maintenance_elevator.maintenance_equipment_views.xml.x
+msgid "Controls"
+msgstr "Skyddsåtgärder"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__operational_status
+msgid "Critical"
+msgstr "Kritisk"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,help:maintenance_elevator.field_maintenance_equipment__elevator_number
+msgid "Customer-facing identifier, e.g. \"Lift 1\" or a property "
+msgstr "Kundsynligt identifierare, t.ex. \"Hiss 1\" eller fastighetens "
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__operational_status
+msgid "December"
+msgstr "December"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__operational_status
+msgid "Decommissioned"
+msgstr "Avvecklad"
+
+#. module: maintenance_elevator
+#: model_terms:ir.module.module,description:maintenance_elevator.module_maintenance_elevator
+msgid "Designed to sit on top of `property_maintanance`, so every elevator"
+msgstr "Byggd ovanpå `property_maintanance`, så varje hiss"
+
+#. module: maintenance_elevator
+#: model_terms:ir.ui.view,arch_db:maintenance_elevator.maintenance_equipment_views.xml.x
+msgid "Door specifications..."
+msgstr "Dörrspecifikation..."
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__tech_doors
+#: model_terms:ir.ui.view,arch_db:maintenance_elevator.maintenance_equipment_views.xml.x
+msgid "Doors"
+msgstr "Dörrar"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__operational_status
+#: model_terms:ir.ui.view,arch_db:maintenance_elevator.maintenance_equipment_views.xml.x
+msgid "Draft"
+msgstr "Utkast"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,help:maintenance_elevator.field_maintenance_equipment__inspection_company_id
+#: model:ir.model.fields,help:maintenance_elevator.field_maintenance_equipment__inspection_month
+#: model:ir.model.fields,help:maintenance_elevator.field_maintenance_equipment__inspection_number
+#: model:ir.model.fields,help:maintenance_elevator.field_maintenance_equipment__last_inspection
+#: model:ir.model.fields,help:maintenance_elevator.field_maintenance_equipment__next_inspection_date
+#: model:ir.model.fields,help:maintenance_elevator.field_maintenance_equipment__tech_shaft
+#: model:ir.model.fields,help:maintenance_elevator.field_maintenance_equipment__tech_signalization
+msgid "Drives the \"inspection soon\" flag."
+msgstr "Styr flaggan \"Besiktning inom kort\"."
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__equipment_id
+#: model_terms:ir.ui.view,arch_db:maintenance_elevator.maintenance_equipment_views.xml.x
+msgid "Elevator"
+msgstr "Hiss"
+
+#. module: maintenance_elevator
+#: model_terms:ir.module.module,description:maintenance_elevator.module_maintenance_elevator
+msgid "Elevator (lift) data on maintenance assets."
+msgstr "Hissdata på underhållstillgångar."
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__elevator_number
+msgid "Elevator Number"
+msgstr "Hissnummer"
+
+#. module: maintenance_elevator
+#: model_terms:ir.ui.view,arch_db:maintenance_elevator.maintenance_elevator_type_views.xml.x
+msgid "Elevator Reference Data"
+msgstr "Hissreferensdata"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__elevator_type_id
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__operational_status
+msgid "Elevator Type"
+msgstr "Hisstyp"
+
+#. module: maintenance_elevator
+#: model_terms:ir.ui.view,arch_db:maintenance_elevator.maintenance_equipment_views.xml.x
+msgid "Elevators"
+msgstr "Hissar"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__emergency_phone_type_id
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__operational_status
+msgid "Emergency Phone Type"
+msgstr "Typ av nödtelefon"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__existing_controls
+msgid "Existing Controls"
+msgstr "Befintliga skyddsåtgärder"
+
+#. module: maintenance_elevator
+#: model_terms:ir.module.module,description:maintenance_elevator.module_maintenance_elevator
+msgid "Features:"
+msgstr "Funktioner:"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__operational_status
+msgid "February"
+msgstr "Februari"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__gsm_device_id
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__operational_status
+msgid "GSM Device"
+msgstr "GSM-enhet"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__tech_general
+msgid "General"
+msgstr "Allmänt"
+
+#. module: maintenance_elevator
+#: model_terms:ir.ui.view,arch_db:maintenance_elevator.maintenance_equipment_views.xml.x
+msgid "General information..."
+msgstr "Allmän information..."
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__operational_status
+msgid "High"
+msgstr "Hög"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__hazard
+msgid "Identified Hazard"
+msgstr "Identifierad fara"
+
+#. module: maintenance_elevator
+#: model_terms:ir.ui.view,arch_db:maintenance_elevator.maintenance_equipment_views.xml.x
+msgid "Identity"
+msgstr "Identitet"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__operational_status
+msgid "In Service"
+msgstr "I drift"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__inspection_company_id
+msgid "Inspection Company"
+msgstr "Besiktningsföretag"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__inspection_month
+msgid "Inspection Month"
+msgstr "Besiktningsmånad"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__inspection_number
+msgid "Inspection Number"
+msgstr "Besiktningsnummer"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__inspection_soon
+#: model_terms:ir.ui.view,arch_db:maintenance_elevator.maintenance_equipment_views.xml.x
+msgid "Inspection Soon"
+msgstr "Besiktning inom kort"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__installation_year
+msgid "Installation Year"
+msgstr "Installationsår"
+
+#. module: maintenance_elevator
+#: model_terms:ir.ui.view,arch_db:maintenance_elevator.maintenance_elevator_type_views.xml.x
+msgid "Internal note..."
+msgstr "Intern anteckning..."
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__is_elevator
+msgid "Is Elevator"
+msgstr "Är hiss"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__operational_status
+msgid "January"
+msgstr "Januari"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__operational_status
+msgid "July"
+msgstr "Juli"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__operational_status
+msgid "June"
+msgstr "Juni"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__last_inspection
+msgid "Last Inspection"
+msgstr "Senaste besiktning"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__operational_status
+msgid "Low"
+msgstr "Låg"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__lubrication_type_id
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__operational_status
+msgid "Lubrication Type"
+msgstr "Smörjningstyp"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__has_machine_room
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__tech_machine_room
+#: model_terms:ir.ui.view,arch_db:maintenance_elevator.maintenance_equipment_views.xml.x
+msgid "Machine Room"
+msgstr "Maskinrum"
+
+#. module: maintenance_elevator
+#: model_terms:ir.ui.view,arch_db:maintenance_elevator.maintenance_equipment_views.xml.x
+msgid "Machine room..."
+msgstr "Maskinrum..."
+
+#. module: maintenance_elevator
+#: model_terms:ir.module.module,description:maintenance_elevator.module_maintenance_elevator
+msgid "Maintenance: Elevator"
+msgstr "Underhåll: Hiss"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__manufacturing_number
+msgid "Manufacturing Number"
+msgstr "Tillverkningsnummer"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__operational_status
+msgid "March"
+msgstr "Mars"
+
+#. module: maintenance_elevator
+#: model_terms:ir.ui.view,arch_db:maintenance_elevator.maintenance_equipment_views.xml.x
+msgid "Mark Out of Order"
+msgstr "Stäng av"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,help:maintenance_elevator.field_maintenance_equipment__is_elevator
+msgid "Mark this asset as an elevator. Reveals the elevator tabs."
+msgstr "Markera tillgången som hiss. Visar hissflikarna."
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__operational_status
+msgid "May"
+msgstr "Maj"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__mechanical_brand_id
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__operational_status
+msgid "Mechanical Brand"
+msgstr "Mekaniskt märke"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__operational_status
+msgid "Medium"
+msgstr "Medel"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__minor_deviation
+msgid "Minor Deviation"
+msgstr "Mindre avsteg"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__name
+msgid "Name"
+msgstr "Namn"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__next_inspection_date
+msgid "Next Inspection"
+msgstr "Nästa besiktning"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__note
+msgid "Note"
+msgstr "Anteckning"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__operational_status
+msgid "November"
+msgstr "November"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__number_of_stops
+msgid "Number of Stops"
+msgstr "Antal stannplan"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__operational_status
+msgid "October"
+msgstr "Oktober"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__operating_intensity
+msgid "Operating Intensity"
+msgstr "Driftsintensitet"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__operational_status
+msgid "Operational Status"
+msgstr "Driftstatus"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__tech_options
+#: model_terms:ir.ui.view,arch_db:maintenance_elevator.maintenance_equipment_views.xml.x
+msgid "Options"
+msgstr "Tillval"
+
+#. module: maintenance_elevator
+#: model_terms:ir.ui.view,arch_db:maintenance_elevator.maintenance_equipment_views.xml.x
+msgid "Options..."
+msgstr "Tillval..."
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__operational_status
+#: model_terms:ir.ui.view,arch_db:maintenance_elevator.maintenance_equipment_views.xml.x
+msgid "Out of Order"
+msgstr "Avstängd"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__out_of_order_reason
+msgid "Out of Order Reason"
+msgstr "Anledning till avstängning"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__out_of_order_by
+msgid "Out of Order Reported By"
+msgstr "Avstängd rapporterad av"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__out_of_order_date
+msgid "Out of Order Since"
+msgstr "Avstängd fr.o.m."
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__probability
+msgid "Probability"
+msgstr "Sannolikhet"
+
+#. module: maintenance_elevator
+#: model_terms:ir.ui.view,arch_db:maintenance_elevator.maintenance_equipment_views.xml.x
+msgid "Property"
+msgstr "Fastighet"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__model_type
+#: model_terms:ir.ui.view,arch_db:maintenance_elevator.maintenance_elevator_type_views.xml.x
+msgid "Reference Type"
+msgstr "Referenstyp"
+
+#. module: maintenance_elevator
+#: model_terms:ir.ui.view,arch_db:maintenance_elevator.maintenance_equipment_views.xml.x
+msgid "Reset to Draft"
+msgstr "Återställ till utkast"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__responsible_id
+msgid "Responsible"
+msgstr "Ansvarig"
+
+#. module: maintenance_elevator
+#: model_terms:ir.ui.view,arch_db:maintenance_elevator.maintenance_equipment_views.xml.x
+msgid "Restore to Service"
+msgstr "Återställ till drift"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__revision_inspection_done
+msgid "Revision Inspection Done"
+msgstr "Revisionsbesiktning utförd"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__revision_inspection_required
+msgid "Revision Inspection Required"
+msgstr "Revisionsbesiktning krävs"
+
+#. module: maintenance_elevator
+#: model_terms:ir.ui.view,arch_db:maintenance_elevator.maintenance_equipment_views.xml.x
+msgid "Risk"
+msgstr "Risk"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__risk_count
+msgid "Risk Count"
+msgstr "Antal risker"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__risk_score
+msgid "Risk Score"
+msgstr "Riskvärde"
+
+#. module: maintenance_elevator
+#: model_terms:ir.ui.view,arch_db:maintenance_elevator.maintenance_equipment_views.xml.x
+msgid "Risk title..."
+msgstr "Rubrik på risken..."
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__risk_ids
+#: model_terms:ir.ui.view,arch_db:maintenance_elevator.maintenance_equipment_views.xml.x
+msgid "Risks"
+msgstr "Risker"
+
+#. module: maintenance_elevator
+#: code:addons/maintenance_elevator/models/x.py:0
+msgid "Risks — %s"
+msgstr "Risker — %s"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__operational_status
+msgid "September"
+msgstr "September"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__sequence
+msgid "Sequence"
+msgstr "Sekvens"
+
+#. module: maintenance_elevator
+#: model_terms:ir.ui.view,arch_db:maintenance_elevator.maintenance_equipment_views.xml.x
+msgid "Serious"
+msgstr "Allvarlig"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__serious
+msgid "Serious Risk"
+msgstr "Allvarlig risk"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__severity
+#: model_terms:ir.ui.view,arch_db:maintenance_elevator.maintenance_equipment_views.xml.x
+msgid "Severity"
+msgstr "Allvarlighetsgrad"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__tech_shaft
+#: model_terms:ir.ui.view,arch_db:maintenance_elevator.maintenance_equipment_views.xml.x
+msgid "Shaft"
+msgstr "Schakt"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__operational_status
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__shaft_door_type_id
+msgid "Shaft Door Type"
+msgstr "Schaktdörrtyp"
+
+#. module: maintenance_elevator
+#: model_terms:ir.ui.view,arch_db:maintenance_elevator.maintenance_equipment_views.xml.x
+msgid "Shaft specifications..."
+msgstr "Schaktspecifikation..."
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,help:maintenance_elevator.field_maintenance_equipment__code
+#: model:ir.model.fields,help:maintenance_elevator.field_maintenance_equipment__model_type
+#: model:ir.model.fields,help:maintenance_elevator.field_maintenance_equipment__name
+msgid "Short code used in reports."
+msgstr "Kortkod som används i rapporter."
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__operational_status
+msgid "Shut Down"
+msgstr "Nedstängd"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__tech_signalization
+#: model_terms:ir.ui.view,arch_db:maintenance_elevator.maintenance_equipment_views.xml.x
+msgid "Signalization"
+msgstr "Signalering"
+
+#. module: maintenance_elevator
+#: model_terms:ir.ui.view,arch_db:maintenance_elevator.maintenance_equipment_views.xml.x
+msgid "Signalization..."
+msgstr "Signalering..."
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__state
+#: model_terms:ir.ui.view,arch_db:maintenance_elevator.maintenance_equipment_views.xml.x
+msgid "Status"
+msgstr "Status"
+
+#. module: maintenance_elevator
+#: model_terms:ir.ui.view,arch_db:maintenance_elevator.maintenance_equipment_views.xml.x
+msgid "Statutory Inspection"
+msgstr "Lagstadgad besiktning"
+
+#. module: maintenance_elevator
+#: model_terms:ir.ui.view,arch_db:maintenance_elevator.maintenance_equipment_views.xml.x
+msgid "Technical Configuration"
+msgstr "Teknisk konfiguration"
+
+#. module: maintenance_elevator
+#: model_terms:ir.ui.view,arch_db:maintenance_elevator.maintenance_equipment_views.xml.x
+msgid "Technical Documentation"
+msgstr "Teknisk dokumentation"
+
+#. module: maintenance_elevator
+#: model_terms:ir.module.module,description:maintenance_elevator.module_maintenance_elevator
+msgid "This module adds elevator-specific data to `maintenance.equipment`:"
+msgstr "Modulen lägger hisspecifik data på `maintenance.equipment`:"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__name
+msgid "Title"
+msgstr "Rubrik"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,help:maintenance_elevator.field_maintenance_equipment__installation_year
+#: model:ir.model.fields,help:maintenance_elevator.field_maintenance_equipment__manufacturing_number
+#: model:ir.model.fields,help:maintenance_elevator.field_maintenance_equipment__number_of_stops
+#: model:ir.model.fields,help:maintenance_elevator.field_maintenance_equipment__operating_intensity
+msgid "Traffic class, e.g. use category per SS-EN 81-20."
+msgstr "Trafikklass, t.ex. användningskategori enligt SS-EN 81-20."
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,help:maintenance_elevator.field_maintenance_equipment__inspection_soon
+msgid "True when the next inspection falls within the warning window."
+msgstr "Sant när nästa besiktning ligger inom varningsfönstret."
+
+#. module: maintenance_elevator
+#: model_terms:ir.ui.view,arch_db:maintenance_elevator.maintenance_equipment_views.xml.x
+msgid "What can go wrong?"
+msgstr "Vad kan gå fel?"
+
+#. module: maintenance_elevator
+#: model_terms:ir.ui.view,arch_db:maintenance_elevator.maintenance_equipment_views.xml.x
+msgid "What is already in place?"
+msgstr "Vad finns redan på plats?"
+
+#. module: maintenance_elevator
+#: model_terms:ir.ui.view,arch_db:maintenance_elevator.maintenance_equipment_views.xml.x
+msgid "What still needs to be done?"
+msgstr "Vad behöver fortfarande göras?"
+
+#. module: maintenance_elevator
+#: model_terms:ir.module.module,description:maintenance_elevator.module_maintenance_elevator
+msgid "bearings, lubrication, GSM, emergency phone)"
+msgstr "lager, smörjning, GSM, nödtelefon)"
+
+#. module: maintenance_elevator
+#: model_terms:ir.module.module,description:maintenance_elevator.module_maintenance_elevator
+msgid "identity, technical configuration, statutory inspection tracking,"
+msgstr "identitet, teknisk konfiguration, besiktningsuppföljning,"
+
+#. module: maintenance_elevator
+#: model_terms:ir.module.module,description:maintenance_elevator.module_maintenance_elevator
+msgid "its address through the property's partner."
+msgstr "sin adress via fastighetens kontakt."
+
+#. module: maintenance_elevator
+#: model_terms:ir.module.module,description:maintenance_elevator.module_maintenance_elevator
+msgid "operational status and a risk register."
+msgstr "driftstatus och ett riskregister."
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__operational_status
+msgid "probability"
+msgstr "sannolikhet"
+
+#. module: maintenance_elevator
+#: model_terms:ir.module.module,description:maintenance_elevator.module_maintenance_elevator
+msgid "reaches its property through `maintenance.equipment.property_id` and"
+msgstr "når sin fastighet via `maintenance.equipment.property_id` och"

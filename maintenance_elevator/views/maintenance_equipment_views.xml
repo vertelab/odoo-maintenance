@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ================================================================
+         Elevator risk
+         ================================================================ -->
+
+    <record id="view_maintenance_elevator_risk_list" model="ir.ui.view">
+        <field name="name">maintenance.elevator.risk.list</field>
+        <field name="model">maintenance.elevator.risk</field>
+        <field name="arch" type="xml">
+            <list string="Risks" decoration-danger="severity == 'critical'"
+                  decoration-warning="severity == 'high'">
+                <field name="name"/>
+                <field name="equipment_id"/>
+                <field name="consequence"/>
+                <field name="probability"/>
+                <field name="risk_score" widget="badge"/>
+                <field name="severity" widget="badge"/>
+                <field name="assessment_date"/>
+                <field name="responsible_id"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_maintenance_elevator_risk_form" model="ir.ui.view">
+        <field name="name">maintenance.elevator.risk.form</field>
+        <field name="model">maintenance.elevator.risk</field>
+        <field name="arch" type="xml">
+            <form string="Risk">
+                <header>
+                    <button name="action_confirm" type="object"
+                            string="Confirm" class="btn-primary"
+                            invisible="state == 'confirmed'"/>
+                    <button name="action_reset_to_draft" type="object"
+                            string="Reset to Draft"
+                            invisible="state != 'confirmed'"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name" placeholder="Risk title..."/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="equipment_id"
+                                   options="{'no_create': True}"/>
+                            <field name="assessment_date"/>
+                            <field name="responsible_id"/>
+                        </group>
+                        <group>
+                            <field name="risk_score" widget="badge"/>
+                            <field name="severity" widget="badge"/>
+                            <field name="serious"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Assessment" name="assessment">
+                            <group>
+                                <field name="hazard" placeholder="What can go wrong?"/>
+                                <field name="consequence"/>
+                                <field name="probability"/>
+                            </group>
+                        </page>
+                        <page string="Controls" name="controls">
+                            <group>
+                                <field name="existing_controls"
+                                       placeholder="What is already in place?"/>
+                                <field name="required_controls"
+                                       placeholder="What still needs to be done?"/>
+                                <field name="minor_deviation"/>
+                            </group>
+                        </page>
+                        <page string="Attachments" name="attachments">
+                            <field name="attachment_ids" widget="many2many_binary"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_maintenance_elevator_risk_search" model="ir.ui.view">
+        <field name="name">maintenance.elevator.risk.search</field>
+        <field name="model">maintenance.elevator.risk</field>
+        <field name="arch" type="xml">
+            <search string="Risks">
+                <field name="name"/>
+                <field name="equipment_id"/>
+                <filter name="filter_serious" string="Serious"
+                        domain="[('serious', '=', True)]"/>
+                <separator/>
+                <filter name="filter_draft" string="Draft"
+                        domain="[('state', '=', 'draft')]"/>
+                <filter name="filter_confirmed" string="Confirmed"
+                        domain="[('state', '=', 'confirmed')]"/>
+                <separator/>
+                <filter name="group_severity" string="Severity"
+                        context="{'group_by': 'severity'}"/>
+                <filter name="group_equipment" string="Elevator"
+                        context="{'group_by': 'equipment_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_maintenance_elevator_risk" model="ir.actions.act_window">
+        <field name="name">Elevator Risks</field>
+        <field name="res_model">maintenance.elevator.risk</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- ================================================================
+         Elevator list
+         ================================================================ -->
+
+    <record id="view_maintenance_equipment_elevator_list" model="ir.ui.view">
+        <field name="name">maintenance.equipment.elevator.list</field>
+        <field name="model">maintenance.equipment</field>
+        <field name="arch" type="xml">
+            <list string="Elevators" decoration-danger="operational_status == 'out_of_order'"
+                  decoration-warning="inspection_soon">
+                <field name="name"/>
+                <field name="elevator_number"/>
+                <field name="manufacturing_number" optional="show"/>
+                <field name="property_id" optional="show"/>
+                <field name="elevator_type_id" optional="show"/>
+                <field name="mechanical_brand_id" optional="hide"/>
+                <field name="installation_year" optional="hide"/>
+                <field name="last_inspection" optional="show"/>
+                <field name="next_inspection_date" optional="show"/>
+                <field name="inspection_soon" optional="show"/>
+                <field name="operational_status" widget="badge"/>
+                <field name="risk_count" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_maintenance_equipment_elevator" model="ir.actions.act_window">
+        <field name="name">Elevators</field>
+        <field name="res_model">maintenance.equipment</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('is_elevator', '=', True)]</field>
+        <field name="context">{'default_is_elevator': True, 'search_default_group_property': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Register your first elevator
+            </p>
+            <p>
+                An elevator is an asset. Give it a property, a manufacturing
+                number and its technical configuration, and the maintenance
+                plans and field service orders follow from there.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_maintenance_elevator"
+              name="Elevators"
+              parent="maintenance.menu_maintenance_title"
+              action="action_maintenance_equipment_elevator"
+              sequence="15"/>
+
+
+    <!-- ================================================================
+         Extend the standard equipment form with elevator tabs
+         ================================================================ -->
+
+    <record id="maintenance_equipment_view_form_inherit_elevator" model="ir.ui.view">
+        <field name="name">maintenance.equipment.form.inherit.elevator</field>
+        <field name="model">maintenance.equipment</field>
+        <field name="inherit_id" ref="maintenance.hr_equipment_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Elevator" name="elevator"
+                      invisible="not is_elevator">
+                    <group>
+                        <group string="Identity">
+                            <field name="elevator_number"/>
+                            <field name="manufacturing_number"/>
+                            <field name="installation_year"/>
+                            <field name="number_of_stops"/>
+                            <field name="operating_intensity"/>
+                        </group>
+                        <group string="Status">
+                            <field name="operational_status" widget="badge"/>
+                            <field name="out_of_order_date"
+                                   invisible="operational_status != 'out_of_order'"/>
+                            <field name="out_of_order_by"
+                                   invisible="operational_status != 'out_of_order'"/>
+                            <field name="out_of_order_reason"
+                                   invisible="operational_status != 'out_of_order'"/>
+                            <field name="has_machine_room"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Technical Configuration">
+                            <field name="elevator_type_id"
+                                   options="{'no_create': True}"/>
+                            <field name="mechanical_brand_id"
+                                   options="{'no_create': True}"/>
+                            <field name="control_system_id"
+                                   options="{'no_create': True}"/>
+                            <field name="car_door_type_id"
+                                   options="{'no_create': True}"/>
+                            <field name="shaft_door_type_id"
+                                   options="{'no_create': True}"/>
+                            <field name="bearing_config_id"
+                                   options="{'no_create': True}"/>
+                            <field name="lubrication_type_id"
+                                   options="{'no_create': True}"/>
+                            <field name="gsm_device_id"
+                                   options="{'no_create': True}"/>
+                            <field name="emergency_phone_type_id"
+                                   options="{'no_create': True}"/>
+                        </group>
+                        <group string="Statutory Inspection">
+                            <field name="inspection_company_id"
+                                   options="{'no_create': True}"/>
+                            <field name="inspection_number"/>
+                            <field name="inspection_month"/>
+                            <field name="last_inspection"/>
+                            <field name="next_inspection_date"/>
+                            <field name="inspection_soon"/>
+                            <field name="revision_inspection_required"/>
+                            <field name="revision_inspection_done"
+                                   invisible="not revision_inspection_required"/>
+                        </group>
+                    </group>
+                </page>
+                <page string="Technical Documentation" name="elevator_tech"
+                      invisible="not is_elevator">
+                    <field name="tech_general" placeholder="General information..."/>
+                    <separator string="Car"/>
+                    <field name="tech_car" placeholder="Car specifications..."/>
+                    <separator string="Control Panel"/>
+                    <field name="tech_control_panel" placeholder="Control panel..."/>
+                    <separator string="Doors"/>
+                    <field name="tech_doors" placeholder="Door specifications..."/>
+                    <separator string="Machine Room"/>
+                    <field name="tech_machine_room" placeholder="Machine room..."/>
+                    <separator string="Options"/>
+                    <field name="tech_options" placeholder="Options..."/>
+                    <separator string="Shaft"/>
+                    <field name="tech_shaft" placeholder="Shaft specifications..."/>
+                    <separator string="Signalization"/>
+                    <field name="tech_signalization" placeholder="Signalization..."/>
+                </page>
+                <page string="Risks" name="elevator_risks"
+                      invisible="not is_elevator">
+                    <field name="risk_ids">
+                        <list editable="bottom" decoration-danger="severity == 'critical'"
+                              decoration-warning="severity == 'high'">
+                            <field name="name"/>
+                            <field name="consequence"/>
+                            <field name="probability"/>
+                            <field name="risk_score" widget="badge"/>
+                            <field name="severity" widget="badge"/>
+                            <field name="state" widget="badge"/>
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+            <xpath expr="//sheet" position="before">
+                <header>
+                    <button name="action_mark_out_of_order" type="object"
+                            string="Mark Out of Order" class="btn-danger"
+                            invisible="not is_elevator or operational_status == 'out_of_order'"/>
+                    <button name="action_restore_to_service" type="object"
+                            string="Restore to Service" class="btn-primary"
+                            invisible="not is_elevator or operational_status != 'out_of_order'"/>
+                </header>
+            </xpath>
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="is_elevator" widget="boolean_toggle"
+                       groups="maintenance.group_equipment_manager"/>
+            </xpath>
+            <xpath expr="//div[hasclass('oe_button_box')]" position="inside">
+                <button name="action_view_risks" type="object"
+                        class="oe_stat_button" icon="fa-exclamation-triangle"
+                        invisible="not is_elevator">
+                    <field name="risk_count" widget="statinfo" string="Risks"/>
+                </button>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Search filter: elevators only -->
+    <record id="maintenance_equipment_view_search_inherit_elevator" model="ir.ui.view">
+        <field name="name">maintenance.equipment.search.inherit.elevator</field>
+        <field name="model">maintenance.equipment</field>
+        <field name="inherit_id" ref="maintenance.hr_equipment_view_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[1]" position="before">
+                <filter name="filter_is_elevator" string="Elevators"
+                        domain="[('is_elevator', '=', True)]"/>
+                <filter name="filter_out_of_order" string="Out of Order"
+                        domain="[('operational_status', '=', 'out_of_order')]"/>
+                <filter name="filter_inspection_soon" string="Inspection Soon"
+                        domain="[('inspection_soon', '=', True)]"/>
+                <separator/>
+            </xpath>
+            <xpath expr="//search" position="inside">
+                <field name="manufacturing_number"/>
+                <field name="elevator_number"/>
+                <filter name="group_property" string="Property"
+                        context="{'group_by': 'property_id'}"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
+
