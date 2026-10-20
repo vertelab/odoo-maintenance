@@ -143,9 +143,12 @@ class MaintenanceEquipment(models.Model):
     inspection_soon = fields.Boolean(
         string='Inspection Soon',
         compute='_compute_inspection_soon',
+        search='_search_inspection_soon',
         # Not stored: the flag depends on today's date and on a system
         # parameter, neither of which is a dependency Odoo can track. A stored
         # value would silently go stale after the parameter is changed.
+        # A search method is therefore required: without it Odoo rejects the
+        # search filter with "Unsearchable field".
         help='True when the next inspection falls within the warning window.',
     )
     revision_inspection_required = fields.Boolean(
@@ -216,6 +219,29 @@ class MaintenanceEquipment(models.Model):
             else:
                 equipment.inspection_soon = False
 
+    def _search_inspection_soon(self, operator, value):
+        """Search support for the non-stored `inspection_soon` flag.
+
+        The flag cannot be stored (it depends on today's date and on a system
+        parameter), so the filter is translated into the equivalent domain on
+        `next_inspection_date`.
+        """
+        days = int(
+            self.env['ir.config_parameter']
+            .sudo()
+            .get_param('maintenance_elevator.inspection_warning_days', 60)
+        )
+        today = fields.Date.context_today(self)
+        horizon = today + timedelta(days=days)
+        in_window = [
+            '&',
+            ('next_inspection_date', '>=', today),
+            ('next_inspection_date', '<=', horizon),
+        ]
+        if (operator == '=' and value) or (operator == '!=' and not value):
+            return in_window
+        return ['!'] + in_window
+
     @api.depends('risk_ids')
     def _compute_risk_count(self):
         for equipment in self:
@@ -266,6 +292,7 @@ class MaintenanceElevatorRisk(models.Model):
     _name = 'maintenance.elevator.risk'
     _description = 'Elevator Risk'
     _order = 'risk_score desc, id desc'
+    _inherit = ['mail.thread']
 
     name = fields.Char(string='Title', required=True, tracking=True)
     equipment_id = fields.Many2one(
