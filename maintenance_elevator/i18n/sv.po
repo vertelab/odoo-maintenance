@@ -379,10 +379,14 @@ msgstr "Smörjningstyp"
 
 #. module: maintenance_elevator
 #: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__has_machine_room
-#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__tech_machine_room
-#: model_terms:ir.ui.view,arch_db:maintenance_elevator.maintenance_equipment_views.xml.x
 msgid "Machine Room"
 msgstr "Maskinrum"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__tech_machine_room
+#: model_terms:ir.ui.view,arch_db:maintenance_elevator.maintenance_equipment_views.xml.x
+msgid "Machine Room (documentation)"
+msgstr "Maskinrum (dokumentation)"
 
 #. module: maintenance_elevator
 #: model_terms:ir.ui.view,arch_db:maintenance_elevator.maintenance_equipment_views.xml.x

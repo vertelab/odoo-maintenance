@@ -109,7 +109,8 @@ class MaintenanceEquipment(models.Model):
     tech_car = fields.Html(string='Car', translate=html_translate)
     tech_control_panel = fields.Html(string='Control Panel', translate=html_translate)
     tech_doors = fields.Html(string='Doors', translate=html_translate)
-    tech_machine_room = fields.Html(string='Machine Room', translate=html_translate)
+    tech_machine_room = fields.Html(
+        string='Machine Room (documentation)', translate=html_translate)
     tech_options = fields.Html(string='Options', translate=html_translate)
     tech_shaft = fields.Html(string='Shaft', translate=html_translate)
     tech_signalization = fields.Html(string='Signalization', translate=html_translate)
@@ -142,7 +143,9 @@ class MaintenanceEquipment(models.Model):
     inspection_soon = fields.Boolean(
         string='Inspection Soon',
         compute='_compute_inspection_soon',
-        store=True,
+        # Not stored: the flag depends on today's date and on a system
+        # parameter, neither of which is a dependency Odoo can track. A stored
+        # value would silently go stale after the parameter is changed.
         help='True when the next inspection falls within the warning window.',
     )
     revision_inspection_required = fields.Boolean(
