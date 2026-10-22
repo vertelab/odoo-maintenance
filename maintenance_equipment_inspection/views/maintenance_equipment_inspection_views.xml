@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ================================================================
+         Inspections
+         ================================================================ -->
+
+    <record id="equipment_inspection_list" model="ir.ui.view">
+        <field name="name">maintenance.equipment.inspection.list</field>
+        <field name="model">maintenance.equipment.inspection</field>
+        <field name="arch" type="xml">
+            <list decoration-danger="remark_level == 'red_remark'"
+                  decoration-warning="remark_level == 'remark'">
+                <field name="name"/>
+                <field name="date"/>
+                <field name="equipment_id"/>
+                <field name="inspection_type" widget="badge"/>
+                <field name="inspector_id" optional="show"/>
+                <field name="inspection_body_id" optional="show"/>
+                <field name="remark_level" widget="badge"
+                       decoration-success="remark_level == 'none'"
+                       decoration-warning="remark_level == 'remark'"
+                       decoration-danger="remark_level == 'red_remark'"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="equipment_inspection_form" model="ir.ui.view">
+        <field name="name">maintenance.equipment.inspection.form</field>
+        <field name="model">maintenance.equipment.inspection</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_start" type="object" string="Start"
+                            class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_complete" type="object" string="Complete"
+                            class="btn-primary" invisible="state != 'in_progress'"/>
+                    <button name="action_generate_lines" type="object"
+                            string="Generate from Template"
+                            invisible="state != 'draft' or line_count > 0 or not template_id"/>
+                    <button name="action_reset_draft" type="object" string="Reset to Draft"
+                            invisible="state not in ('done', 'cancelled')"/>
+                    <button name="action_cancel" type="object" string="Cancel"
+                            invisible="state in ('done', 'cancelled')"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,in_progress,done"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="%(maintenance.hr_equipment_request_action_from_equipment)d"
+                                type="action" class="oe_stat_button" icon="fa-wrench"
+                                context="{'default_equipment_id': equipment_id}">
+                            <span class="o_stat_text">Requests</span>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="equipment_id"
+                                   options="{'no_create': True}"/>
+                            <field name="template_id"
+                                   options="{'no_create': True}"
+                                   invisible="state != 'draft'"/>
+                            <field name="inspection_type"/>
+                        </group>
+                        <group>
+                            <field name="date"/>
+                            <field name="inspector_id"/>
+                            <field name="inspection_body_id"
+                                   options="{'no_create': True}"/>
+                            <field name="request_id" invisible="not request_id"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="remark_level" widget="badge"
+                                   decoration-success="remark_level == 'none'"
+                                   decoration-warning="remark_level == 'remark'"
+                                   decoration-danger="remark_level == 'red_remark'"/>
+                            <field name="remark_count"/>
+                            <field name="red_remark_count"
+                                   invisible="not red_remark_count"/>
+                        </group>
+                        <group>
+                            <field name="line_count"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Check Points" name="lines">
+                            <field name="line_ids">
+                                <list editable="bottom"
+                                      decoration-danger="result == 'red_remark'"
+                                      decoration-warning="result == 'remark'">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="name"/>
+                                    <field name="instruction" optional="show"/>
+                                    <field name="result" widget="badge"
+                                           decoration-success="result == 'ok'"
+                                           decoration-warning="result == 'remark'"
+                                           decoration-danger="result == 'red_remark'"/>
+                                    <field name="note" optional="show"/>
+                                    <field name="photo" widget="image" optional="hide"/>
+                                    <field name="action_request_id" readonly="1"
+                                           invisible="not action_request_id"/>
+                                    <button name="action_create_maintenance_request"
+                                            type="object" icon="fa-external-link"
+                                            title="Create Maintenance Request"
+                                            invisible="result not in ('remark', 'red_remark') or action_request_id"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Report" name="report">
+                            <group>
+                                <field name="report" widget="binary"
+                                       filename="report_filename"/>
+                                <field name="report_filename" invisible="1"/>
+                            </group>
+                            <field name="notes" placeholder="Summary of the inspection..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="equipment_inspection_search" model="ir.ui.view">
+        <field name="name">maintenance.equipment.inspection.search</field>
+        <field name="model">maintenance.equipment.inspection</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="equipment_id"/>
+                <field name="inspector_id"/>
+                <field name="inspection_body_id"/>
+                <filter name="filter_red_remark" string="Red Remark"
+                        domain="[('remark_level', '=', 'red_remark')]"/>
+                <filter name="filter_remark" string="Any Remark"
+                        domain="[('remark_level', '!=', 'none')]"/>
+                <separator/>
+                <filter name="filter_open" string="Open"
+                        domain="[('state', 'not in', ('done', 'cancelled'))]"/>
+                <separator/>
+                <filter name="group_by_equipment" string="Equipment"
+                        context="{'group_by': 'equipment_id'}"/>
+                <filter name="group_by_type" string="Inspection Type"
+                        context="{'group_by': 'inspection_type'}"/>
+                <filter name="group_by_state" string="State"
+                        context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_equipment_inspection" model="ir.actions.act_window">
+        <field name="name">Inspections</field>
+        <field name="res_model">maintenance.equipment.inspection</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Record your first inspection
+            </p>
+            <p>
+                An inspection is the protocol: what was checked, what was
+                found, who checked it. Pick a template and the check points
+                are copied in.
+            </p>
+        </field>
+    </record>
+
+</odoo>

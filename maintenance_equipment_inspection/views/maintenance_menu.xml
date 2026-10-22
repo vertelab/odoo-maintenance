@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="menu_inspection_root"
+              name="Inspections"
+              parent="maintenance.menu_maintenance_title"
+              sequence="15"/>
+
+    <menuitem id="menu_equipment_inspection"
+              name="Inspections"
+              parent="menu_inspection_root"
+              action="action_equipment_inspection"
+              sequence="10"/>
+
+    <menuitem id="menu_inspection_template"
+              name="Inspection Templates"
+              parent="menu_inspection_root"
+              action="action_inspection_template"
+              sequence="90"/>
+
+</odoo>

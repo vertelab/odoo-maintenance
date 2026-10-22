@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ================================================================
+         Inspections on the equipment form.
+
+         Anchored on //notebook, not on a named page: several modules extend
+         this form and anchoring on a page another module owns is how views
+         break.
+         ================================================================ -->
+    <record id="maintenance_equipment_form_inspection" model="ir.ui.view">
+        <field name="name">maintenance.equipment.form.inspection</field>
+        <field name="model">maintenance.equipment</field>
+        <field name="inherit_id" ref="maintenance.hr_equipment_view_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//div[hasclass('oe_button_box')]" position="inside">
+                <button name="action_view_inspections" type="object"
+                        class="oe_stat_button" icon="fa-clipboard"
+                        invisible="inspection_count == 0">
+                    <div class="o_stat_info">
+                        <span class="o_stat_value">
+                            <field name="inspection_count"/>
+                        </span>
+                        <span class="o_stat_text">Inspections</span>
+                    </div>
+                </button>
+            </xpath>
+
+            <xpath expr="//notebook" position="inside">
+                <page string="Inspections" name="inspections">
+                    <group>
+                        <group>
+                            <field name="last_inspection_date"/>
+                            <field name="last_inspection_remark_level"/>
+                        </group>
+                        <group>
+                            <field name="inspection_template_id"
+                                   options="{'no_create': True}"/>
+                        </group>
+                    </group>
+                    <field name="inspection_ids">
+                        <list decoration-danger="remark_level == 'red_remark'"
+                              decoration-warning="remark_level == 'remark'">
+                            <field name="name"/>
+                            <field name="date"/>
+                            <field name="inspection_type" widget="badge"/>
+                            <field name="inspector_id"/>
+                            <field name="remark_level" widget="badge"
+                                   decoration-success="remark_level == 'none'"
+                                   decoration-warning="remark_level == 'remark'"
+                                   decoration-danger="remark_level == 'red_remark'"/>
+                            <field name="state" widget="badge"/>
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>
