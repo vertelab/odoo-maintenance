@@ -34,6 +34,7 @@ class TestMaintenanceElevator(TransactionCase):
     1. Reference data is one model with a model_type discriminator.
     2. The risk register computes score and severity from the 1-5 scale.
     3. The inspection window reads its threshold from a system parameter.
+    4. Lifecycle status and operational status are independent fields.
     """
 
     @classmethod
@@ -142,3 +143,35 @@ class TestMaintenanceElevator(TransactionCase):
         self.equipment.action_restore_to_service()
         self.assertEqual(self.equipment.operational_status, 'operational')
         self.assertFalse(self.equipment.out_of_order_date)
+
+    def test_lifecycle_status_defaults_to_active(self):
+        """Restored from Odoo 17: the lifecycle field defaults to `active`."""
+        self.assertEqual(self.equipment.elevator_status, 'active')
+
+    def test_lifecycle_status_has_the_odoo17_values(self):
+        """The four values are the Odoo 17 ones, and nothing else."""
+        values = dict(
+            self.equipment._fields['elevator_status']._description_selection(
+                self.env
+            )
+        )
+        self.assertEqual(
+            list(values),
+            ['active', 'inactive', 'modernization', 'new_installation'],
+        )
+
+    def test_lifecycle_and_operational_status_combine(self):
+        """The two statuses answer different questions and coexist.
+
+        An elevator under modernization is legitimately out of order; the
+        lifecycle field must not be overwritten by the operational one.
+        """
+        self.equipment.write({'elevator_status': 'modernization'})
+        self.equipment.action_mark_out_of_order()
+        self.assertEqual(self.equipment.elevator_status, 'modernization')
+        self.assertEqual(self.equipment.operational_status, 'out_of_order')
+
+        self.equipment.write({'elevator_status': 'new_installation'})
+        self.equipment.action_restore_to_service()
+        self.assertEqual(self.equipment.elevator_status, 'new_installation')
+        self.assertEqual(self.equipment.operational_status, 'operational')
