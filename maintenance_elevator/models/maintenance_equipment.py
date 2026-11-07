@@ -167,6 +167,29 @@ class MaintenanceEquipment(models.Model):
     )
 
     # ------------------------------------------------------------------
+    # Lifecycle status
+    # ------------------------------------------------------------------
+    # Two independent status fields, kept apart on purpose:
+    #   elevator_status     — where in its life the elevator is
+    #   operational_status  — whether it works right now
+    # They combine freely (modernization + out_of_order is normal during a
+    # rebuild). Collapsing them into one field loses that distinction.
+    elevator_status = fields.Selection(
+        selection=[
+            ('active', 'Active'),
+            ('inactive', 'Inactive'),
+            ('modernization', 'Modernization'),
+            ('new_installation', 'New Installation'),
+        ],
+        string='Lifecycle Status',
+        default='active',
+        tracking=True,
+        help='Where the elevator is in its life cycle: active, inactive, '
+             'under modernization or newly installed. Says nothing about '
+             'whether it works right now — that is Operational Status.',
+    )
+
+    # ------------------------------------------------------------------
     # Operational status
     # ------------------------------------------------------------------
     operational_status = fields.Selection(
@@ -180,6 +203,8 @@ class MaintenanceEquipment(models.Model):
         default='operational',
         required=True,
         tracking=True,
+        help='Whether the elevator works right now: in service, out of order, '
+             'shut down or decommissioned. Independent of Lifecycle Status.',
     )
     out_of_order_date = fields.Date(string='Out of Order Since', tracking=True)
     out_of_order_reason = fields.Text(string='Out of Order Reason', tracking=True)

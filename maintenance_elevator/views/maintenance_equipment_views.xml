@@ -184,6 +184,7 @@
                             <field name="operating_intensity"/>
                         </group>
                         <group string="Status">
+                            <field name="elevator_status" widget="badge"/>
                             <field name="operational_status" widget="badge"/>
                             <field name="out_of_order_date"
                                    invisible="operational_status != 'out_of_order'"/>

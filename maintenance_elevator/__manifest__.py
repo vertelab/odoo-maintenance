@@ -26,7 +26,7 @@
     'contributor': '',
     'maintainer': 'Vertel Sverige AB',
     'repository': 'https://github.com/vertelab/odoo-maintenance',
-    'version': '18.0.1.0.1',
+    'version': '18.0.1.0.2',
     # Version ledger: 18.0 = Odoo version. 1 = Major. Non regressionable code.
     # 0 = Minor. 1 = Bug fixes
     'images': ['static/description/banner.png'],  # 560x280 px.
@@ -53,6 +53,8 @@ Maintenance: Elevator
           bearings, lubrication, GSM, emergency phone)
         - Eight sectioned technical documentation fields
         - Statutory inspection tracking with due-date warning
+        - Lifecycle status (active, inactive, modernization, new
+          installation) kept separate from the operational status
         - Out-of-order tracking with reason and date
         - Risk register with computed score and severity
     ''',
