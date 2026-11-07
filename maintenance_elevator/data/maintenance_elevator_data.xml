@@ -39,6 +39,40 @@
             <field name="code">PL</field>
             <field name="sequence">50</field>
         </record>
+        <!-- Drive and mounting variants. They classify the same asset as the
+             five above — a traction elevator is still a passenger elevator
+             — but the inspection checklist differs by drive, so the type is
+             picked by drive when the driver is known. -->
+        <record id="elevator_type_traction" model="maintenance.elevator.type">
+            <field name="model_type">elevator</field>
+            <field name="name">Traction Elevator</field>
+            <field name="code">TRACTION</field>
+            <field name="sequence">60</field>
+        </record>
+        <record id="elevator_type_hydraulic" model="maintenance.elevator.type">
+            <field name="model_type">elevator</field>
+            <field name="name">Hydraulic Elevator</field>
+            <field name="code">HYDRAULIC</field>
+            <field name="sequence">70</field>
+        </record>
+        <record id="elevator_type_mrl" model="maintenance.elevator.type">
+            <field name="model_type">elevator</field>
+            <field name="name">Machine Room Less</field>
+            <field name="code">MRL</field>
+            <field name="sequence">80</field>
+        </record>
+        <record id="elevator_type_screw" model="maintenance.elevator.type">
+            <field name="model_type">elevator</field>
+            <field name="name">Screw Drive Elevator</field>
+            <field name="code">SCREW</field>
+            <field name="sequence">90</field>
+        </record>
+        <record id="elevator_type_stair_lift" model="maintenance.elevator.type">
+            <field name="model_type">elevator</field>
+            <field name="name">Stair Lift</field>
+            <field name="code">STAIRLIFT</field>
+            <field name="sequence">100</field>
+        </record>
 
         <!-- Control systems -->
         <record id="control_system_relay" model="maintenance.elevator.type">
@@ -62,7 +96,15 @@
             <field name="sequence">40</field>
         </record>
 
-        <!-- Door types -->
+        <!-- Door types. An automatic door and a gate are door variants, not
+             elevators: they were elevator types when the list was flat, and
+             an elevator opened by one was filed under its door. -->
+        <record id="car_door_automatic" model="maintenance.elevator.type">
+            <field name="model_type">car_door</field>
+            <field name="name">Automatic Door</field>
+            <field name="code">DOOR</field>
+            <field name="sequence">5</field>
+        </record>
         <record id="car_door_center" model="maintenance.elevator.type">
             <field name="model_type">car_door</field>
             <field name="name">Center Opening</field>
@@ -88,6 +130,12 @@
             <field name="model_type">shaft_door</field>
             <field name="name">Sliding Door</field>
             <field name="sequence">20</field>
+        </record>
+        <record id="shaft_door_gate" model="maintenance.elevator.type">
+            <field name="model_type">shaft_door</field>
+            <field name="name">Gate</field>
+            <field name="code">GATE</field>
+            <field name="sequence">30</field>
         </record>
 
         <!-- Bearing configuration -->
