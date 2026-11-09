@@ -48,6 +48,7 @@ msgstr "- Teknisk konfiguration (typ, märke, styrsystem, dörrar,"
 
 #. module: maintenance_elevator
 #: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__active
+#: model:ir.model.fields.selection,name:maintenance_elevator.selection__maintenance_equipment__elevator_status__active
 msgid "Active"
 msgstr "Aktiv"
 
@@ -311,6 +312,11 @@ msgid "In Service"
 msgstr "I drift"
 
 #. module: maintenance_elevator
+#: model:ir.model.fields.selection,name:maintenance_elevator.selection__maintenance_equipment__elevator_status__inactive
+msgid "Inactive"
+msgstr "Inaktiv"
+
+#. module: maintenance_elevator
 #: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__inspection_company_id
 msgid "Inspection Company"
 msgstr "Besiktningsföretag"
@@ -365,6 +371,11 @@ msgstr "Juni"
 #: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__last_inspection
 msgid "Last Inspection"
 msgstr "Senaste besiktning"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__elevator_status
+msgid "Lifecycle Status"
+msgstr "Livscykelstatus"
 
 #. module: maintenance_elevator
 #: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__operational_status
@@ -440,9 +451,19 @@ msgid "Minor Deviation"
 msgstr "Mindre avsteg"
 
 #. module: maintenance_elevator
+#: model:ir.model.fields.selection,name:maintenance_elevator.selection__maintenance_equipment__elevator_status__modernization
+msgid "Modernization"
+msgstr "Modernisering"
+
+#. module: maintenance_elevator
 #: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__name
 msgid "Name"
 msgstr "Namn"
+
+#. module: maintenance_elevator
+#: model:ir.model.fields.selection,name:maintenance_elevator.selection__maintenance_equipment__elevator_status__new_installation
+msgid "New Installation"
+msgstr "Ny installation"
 
 #. module: maintenance_elevator
 #: model:ir.model.fields,field_description:maintenance_elevator.field_maintenance_equipment__next_inspection_date
