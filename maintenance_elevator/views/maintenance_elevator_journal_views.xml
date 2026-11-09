@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ================================================================
+         Elevator journal
+         ================================================================ -->
+
+    <record id="view_maintenance_elevator_journal_list" model="ir.ui.view">
+        <field name="name">maintenance.elevator.journal.list</field>
+        <field name="model">maintenance.elevator.journal</field>
+        <field name="arch" type="xml">
+            <list string="Journal" decoration-success="state == 'confirmed'">
+                <field name="event_date"/>
+                <field name="name"/>
+                <field name="equipment_id"/>
+                <field name="event_type"/>
+                <field name="scope"/>
+                <field name="performed_by_id" optional="show"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_maintenance_elevator_journal_form" model="ir.ui.view">
+        <field name="name">maintenance.elevator.journal.form</field>
+        <field name="model">maintenance.elevator.journal</field>
+        <field name="arch" type="xml">
+            <form string="Journal Entry">
+                <header>
+                    <field name="can_manage" invisible="1"/>
+                    <button name="action_confirm" type="object"
+                            string="Confirm" class="btn-primary"
+                            groups="maintenance.group_equipment_manager"
+                            invisible="state != 'draft'"/>
+                    <button name="action_reopen" type="object"
+                            string="Reopen"
+                            groups="maintenance.group_equipment_manager"
+                            invisible="state != 'confirmed'"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="equipment_id"
+                                   options="{'no_create': True}"
+                                   readonly="state == 'confirmed' and not can_manage"/>
+                            <field name="event_date"
+                                   readonly="state == 'confirmed' and not can_manage"/>
+                            <field name="event_type"
+                                   readonly="state == 'confirmed' and not can_manage"/>
+                            <field name="incident_id"
+                                   options="{'no_create': True}"
+                                   readonly="state == 'confirmed' and not can_manage"/>
+                        </group>
+                        <group>
+                            <field name="performed_by_id"
+                                   readonly="state == 'confirmed' and not can_manage"/>
+                            <field name="performed_by_name"
+                                   readonly="state == 'confirmed' and not can_manage"/>
+                            <field name="operating_intensity"
+                                   readonly="state == 'confirmed' and not can_manage"/>
+                            <field name="confirmed_by_id"
+                                   invisible="state != 'confirmed'"/>
+                            <field name="confirmed_date"
+                                   invisible="state != 'confirmed'"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="scope"
+                               readonly="state == 'confirmed' and not can_manage"
+                               placeholder="What was done, and how far did it reach?"/>
+                    </group>
+                    <group string="Out of Service"
+                           invisible="event_type not in ('outage', 'operation')">
+                        <field name="downtime_start"
+                               readonly="state == 'confirmed' and not can_manage"/>
+                        <field name="downtime_end"
+                               readonly="state == 'confirmed' and not can_manage"/>
+                        <field name="downtime_reason"
+                               readonly="state == 'confirmed' and not can_manage"/>
+                    </group>
+                    <group string="Modification and Revision Inspection"
+                           invisible="event_type != 'change'">
+                        <field name="revision_inspection_required"
+                               readonly="state == 'confirmed' and not can_manage"/>
+                        <field name="revision_inspection_done"
+                               readonly="state == 'confirmed' and not can_manage"/>
+                        <field name="minor_deviation"
+                               readonly="state == 'confirmed' and not can_manage"/>
+                    </group>
+                    <field name="attachment_ids" widget="many2many_binary"
+                           readonly="state == 'confirmed' and not can_manage"/>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_maintenance_elevator_journal_search" model="ir.ui.view">
+        <field name="name">maintenance.elevator.journal.search</field>
+        <field name="model">maintenance.elevator.journal</field>
+        <field name="arch" type="xml">
+            <search string="Journal">
+                <field name="name"/>
+                <field name="equipment_id"/>
+                <field name="event_type"/>
+                <field name="performed_by_id"/>
+                <filter name="filter_confirmed" string="Confirmed"
+                        domain="[('state', '=', 'confirmed')]"/>
+                <filter name="filter_draft" string="Draft"
+                        domain="[('state', '=', 'draft')]"/>
+                <separator/>
+                <filter name="group_equipment" string="Elevator"
+                        context="{'group_by': 'equipment_id'}"/>
+                <filter name="group_event_type" string="Event Type"
+                        context="{'group_by': 'event_type'}"/>
+                <filter name="group_month" string="Month"
+                        context="{'group_by': 'event_date:month'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_maintenance_elevator_journal" model="ir.actions.act_window">
+        <field name="name">Elevator Journal</field>
+        <field name="res_model">maintenance.elevator.journal</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_maintenance_elevator_journal_search"/>
+    </record>
+
+    <!-- ================================================================
+         Electrical safety plan
+         ================================================================ -->
+
+    <record id="view_maintenance_elevator_electrical_plan_list" model="ir.ui.view">
+        <field name="name">maintenance.elevator.electrical.plan.list</field>
+        <field name="model">maintenance.elevator.electrical.plan</field>
+        <field name="arch" type="xml">
+            <list string="Electrical Safety Plans">
+                <field name="name"/>
+                <field name="plan_date"/>
+                <field name="equipment_id"/>
+                <field name="work_method"/>
+                <field name="safety_responsible_id"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_maintenance_elevator_electrical_plan_form" model="ir.ui.view">
+        <field name="name">maintenance.elevator.electrical.plan.form</field>
+        <field name="model">maintenance.elevator.electrical.plan</field>
+        <field name="arch" type="xml">
+            <form string="Electrical Safety Plan">
+                <header>
+                    <button name="action_ready" type="object"
+                            string="Ready for Work" class="btn-primary"
+                            invisible="state != 'draft'"/>
+                    <button name="action_approve" type="object"
+                            string="Approve" class="btn-primary"
+                            groups="maintenance.group_equipment_manager"
+                            invisible="state != 'ready'"/>
+                    <button name="action_done" type="object"
+                            string="Complete"
+                            invisible="state != 'approved'"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="equipment_id"
+                                   options="{'no_create': True}"/>
+                            <field name="plan_date"/>
+                            <field name="electrical_hazard"/>
+                            <field name="work_method"/>
+                        </group>
+                        <group>
+                            <field name="safety_responsible_id"
+                                   options="{'no_create': True}"/>
+                            <field name="participant_ids"
+                                   widget="many2many_tags"/>
+                            <field name="approved_by_id"
+                                   invisible="state not in ('approved', 'done')"/>
+                        </group>
+                    </group>
+                    <group string="Planning and Protection">
+                        <field name="documentation_checked"/>
+                        <field name="requirements_determined"/>
+                        <field name="disconnected"/>
+                        <field name="reconnection_protected"/>
+                        <field name="voltage_tested"/>
+                        <field name="adjacent_parts_protected"/>
+                        <field name="instructions"/>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_maintenance_elevator_electrical_plan_search" model="ir.ui.view">
+        <field name="name">maintenance.elevator.electrical.plan.search</field>
+        <field name="model">maintenance.elevator.electrical.plan</field>
+        <field name="arch" type="xml">
+            <search string="Electrical Safety Plans">
+                <field name="name"/>
+                <field name="equipment_id"/>
+                <field name="safety_responsible_id"/>
+                <filter name="group_equipment" string="Elevator"
+                        context="{'group_by': 'equipment_id'}"/>
+                <filter name="group_state" string="Status"
+                        context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_maintenance_elevator_electrical_plan" model="ir.actions.act_window">
+        <field name="name">Electrical Safety Plans</field>
+        <field name="res_model">maintenance.elevator.electrical.plan</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_maintenance_elevator_electrical_plan_search"/>
+    </record>
+
+    <!-- ================================================================
+         Menus — under the elevator root
+         ================================================================ -->
+
+    <menuitem id="menu_maintenance_elevator_compliance"
+              name="Compliance"
+              parent="menu_maintenance_elevator"
+              sequence="20"/>
+
+    <menuitem id="menu_maintenance_elevator_journal"
+              name="Journal"
+              parent="menu_maintenance_elevator_compliance"
+              action="action_maintenance_elevator_journal"
+              sequence="10"/>
+
+    <menuitem id="menu_maintenance_elevator_electrical_plan"
+              name="Electrical Safety Plans"
+              parent="menu_maintenance_elevator_compliance"
+              action="action_maintenance_elevator_electrical_plan"
+              sequence="20"/>
+
+</odoo>

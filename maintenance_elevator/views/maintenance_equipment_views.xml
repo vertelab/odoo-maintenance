@@ -229,6 +229,12 @@
                                    invisible="not revision_inspection_required"/>
                         </group>
                     </group>
+                    <group>
+                        <group string="Management System">
+                            <field name="mgmtsystem_system_id"
+                                   options="{'no_create': True}"/>
+                        </group>
+                    </group>
                 </page>
                 <page string="Technical Documentation" name="elevator_tech"
                       invisible="not is_elevator">
@@ -247,6 +253,32 @@
                     <field name="tech_shaft" placeholder="Shaft specifications..."/>
                     <separator string="Signalization"/>
                     <field name="tech_signalization" placeholder="Signalization..."/>
+                </page>
+                <page string="Journal" name="elevator_journal"
+                      invisible="not is_elevator">
+                    <field name="journal_ids">
+                        <list editable="bottom"
+                              decoration-success="state == 'confirmed'">
+                            <field name="event_date"/>
+                            <field name="name"/>
+                            <field name="event_type"/>
+                            <field name="scope"/>
+                            <field name="performed_by_id" optional="show"/>
+                            <field name="state" widget="badge"/>
+                        </list>
+                    </field>
+                </page>
+                <page string="Electrical Safety" name="elevator_electrical"
+                      invisible="not is_elevator">
+                    <field name="electrical_plan_ids">
+                        <list editable="bottom">
+                            <field name="plan_date"/>
+                            <field name="name"/>
+                            <field name="work_method"/>
+                            <field name="safety_responsible_id"/>
+                            <field name="state" widget="badge"/>
+                        </list>
+                    </field>
                 </page>
                 <page string="Risks" name="elevator_risks"
                       invisible="not is_elevator">
@@ -278,6 +310,16 @@
                        groups="maintenance.group_equipment_manager"/>
             </xpath>
             <xpath expr="//div[hasclass('oe_button_box')]" position="inside">
+                <button name="action_view_journal" type="object"
+                        class="oe_stat_button" icon="fa-book"
+                        invisible="not is_elevator">
+                    <field name="journal_count" widget="statinfo" string="Journal"/>
+                </button>
+                <button name="action_view_electrical_plans" type="object"
+                        class="oe_stat_button" icon="fa-bolt"
+                        invisible="not is_elevator">
+                    <field name="electrical_plan_count" widget="statinfo" string="Electrical"/>
+                </button>
                 <button name="action_view_risks" type="object"
                         class="oe_stat_button" icon="fa-exclamation-triangle"
                         invisible="not is_elevator">

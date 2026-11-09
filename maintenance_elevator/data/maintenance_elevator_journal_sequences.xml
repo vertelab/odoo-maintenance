@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- ============================================================
+             Journal and plan numbering
+
+             The journal is evidence: an entry's number must never be
+             reused, so it comes from a sequence and not from the id.
+             ============================================================ -->
+
+        <record id="sequence_maintenance_elevator_journal" model="ir.sequence">
+            <field name="name">Elevator Journal</field>
+            <field name="code">maintenance.elevator.journal</field>
+            <field name="prefix">HJ/%(year)s/</field>
+            <field name="padding">5</field>
+        </record>
+
+        <record id="sequence_maintenance_elevator_electrical_plan" model="ir.sequence">
+            <field name="name">Electrical Safety Plan</field>
+            <field name="code">maintenance.elevator.electrical.plan</field>
+            <field name="prefix">EP/%(year)s/</field>
+            <field name="padding">5</field>
+        </record>
+
+    </data>
+</odoo>

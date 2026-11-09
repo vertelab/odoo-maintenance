@@ -215,6 +215,40 @@ class MaintenanceEquipment(models.Model):
     )
 
     # ------------------------------------------------------------------
+    # Management system
+    # ------------------------------------------------------------------
+    mgmtsystem_system_id = fields.Many2one(
+        'mgmtsystem.system',
+        string='Management System',
+        tracking=True,
+        help='The management system this elevator is covered by. Set it to '
+             'have the elevator\'s deviations (mgmtsystem.nonconformity, '
+             'linked through equipment_id) roll up into the same system.',
+    )
+
+    # ------------------------------------------------------------------
+    # Compliance journal and electrical safety plans
+    # ------------------------------------------------------------------
+    journal_ids = fields.One2many(
+        'maintenance.elevator.journal',
+        'equipment_id',
+        string='Journal Entries',
+    )
+    journal_count = fields.Integer(
+        string='Journal Entries',
+        compute='_compute_journal_count',
+    )
+    electrical_plan_ids = fields.One2many(
+        'maintenance.elevator.electrical.plan',
+        'equipment_id',
+        string='Electrical Safety Plans',
+    )
+    electrical_plan_count = fields.Integer(
+        string='Electrical Safety Plans',
+        compute='_compute_electrical_plan_count',
+    )
+
+    # ------------------------------------------------------------------
     # Risk register
     # ------------------------------------------------------------------
     risk_ids = fields.One2many(
@@ -280,6 +314,16 @@ class MaintenanceEquipment(models.Model):
         for equipment in self:
             equipment.risk_count = len(equipment.risk_ids)
 
+    @api.depends('journal_ids')
+    def _compute_journal_count(self):
+        for equipment in self:
+            equipment.journal_count = len(equipment.journal_ids)
+
+    @api.depends('electrical_plan_ids')
+    def _compute_electrical_plan_count(self):
+        for equipment in self:
+            equipment.electrical_plan_count = len(equipment.electrical_plan_ids)
+
     # ------------------------------------------------------------------
     # Actions
     # ------------------------------------------------------------------
@@ -289,6 +333,28 @@ class MaintenanceEquipment(models.Model):
             'name': _('Risks — %s', self.name),
             'type': 'ir.actions.act_window',
             'res_model': 'maintenance.elevator.risk',
+            'view_mode': 'list,form',
+            'domain': [('equipment_id', '=', self.id)],
+            'context': {'default_equipment_id': self.id},
+        }
+
+    def action_view_journal(self):
+        self.ensure_one()
+        return {
+            'name': _('Journal — %s', self.name),
+            'type': 'ir.actions.act_window',
+            'res_model': 'maintenance.elevator.journal',
+            'view_mode': 'list,form',
+            'domain': [('equipment_id', '=', self.id)],
+            'context': {'default_equipment_id': self.id},
+        }
+
+    def action_view_electrical_plans(self):
+        self.ensure_one()
+        return {
+            'name': _('Electrical Safety Plans — %s', self.name),
+            'type': 'ir.actions.act_window',
+            'res_model': 'maintenance.elevator.electrical.plan',
             'view_mode': 'list,form',
             'domain': [('equipment_id', '=', self.id)],
             'context': {'default_equipment_id': self.id},
