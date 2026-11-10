@@ -28,13 +28,13 @@
         Project Maintenance Customer User Access.
     """,
     'author': 'Vertel Sverige AB',
-    'website': 'https://vertel.se/apps/odoo-project/customer_project_user',
+    'website': 'https://vertel.se/apps/odoo-project/project_customer_user',
     'images': ['static/description/banner.png'],  # 560x280 px.
     'license': 'AGPL-3',
     'contributor': '',
     'maintainer': 'Vertel Sverige AB',
     'repository': 'https://github.com/vertelab/odoo-project',
-    'depends': ['customer_project_user', 'maintenance_project', 'maintenance'],
+    'depends': ['project_customer_user', 'maintenance_project', 'maintenance'],
     'data': [
         'views/project_project_views.xml',
         'views/menu.xml',

@@ -5,7 +5,7 @@
         <record model="ir.model.access" id="access_maintenance_request_project_customer_rule">
             <field name="name">maintenance request for project customer user</field>
             <field name="model_id" ref="maintenance.model_maintenance_request"/>
-            <field name="group_id" ref="customer_project_user.group_project_customer_user"/>
+            <field name="group_id" ref="project_customer_user.group_project_customer_user"/>
             <field name="perm_read">1</field>
             <field name="perm_write">0</field>
             <field name="perm_create">0</field>
@@ -16,7 +16,7 @@
         <record model="ir.model.access" id="access_maintenance_equipment_project_customer_rule">
             <field name="name">maintenance equipment for project customer user</field>
             <field name="model_id" ref="maintenance.model_maintenance_equipment"/>
-            <field name="group_id" ref="customer_project_user.group_project_customer_user"/>
+            <field name="group_id" ref="project_customer_user.group_project_customer_user"/>
             <field name="perm_read">1</field>
             <field name="perm_write">0</field>
             <field name="perm_create">0</field>
