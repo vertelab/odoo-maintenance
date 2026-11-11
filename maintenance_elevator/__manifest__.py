@@ -73,8 +73,11 @@ Maintenance: Elevator
         'data/maintenance_elevator_data.xml',
         'data/maintenance_elevator_journal_sequences.xml',
         'views/maintenance_elevator_type_views.xml',
-        'views/maintenance_elevator_journal_views.xml',
+        # maintenance_equipment_views.xml defines menu_maintenance_elevator,
+        # which the journal and compliance menus hang under — it must load
+        # first.
         'views/maintenance_equipment_views.xml',
+        'views/maintenance_elevator_journal_views.xml',
     ],
     'application': False,
     'installable': True,
