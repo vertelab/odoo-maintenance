@@ -42,7 +42,7 @@ Maintenance: Elevator
     identity, technical configuration, statutory inspection tracking,
     operational status and a risk register.
 
-    Designed to sit on top of `property_maintanance`, so every elevator
+    Designed to sit on top of `property_maintenance`, so every elevator
     reaches its property through `maintenance.equipment.property_id` and
     its address through the property's partner.
 
@@ -64,7 +64,7 @@ Maintenance: Elevator
     ''',
     'depends': [
         'maintenance',
-        'property_maintanance',
+        'property_maintenance',
         'hr',
         'mgmtsystem_nonconformity',
     ],
