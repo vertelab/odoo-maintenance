@@ -6,7 +6,11 @@ import json
 import werkzeug
 
 from odoo import http
-from odoo.addons.web.controllers.main import ensure_db
+# Odoo 18: ensure_db flyttades fran web.controllers.main till
+# web.controllers.utils. Den gamla sokvagen finns inte ->
+#   Couldn't load module maintenance_monitoring_status
+#   Failed to initialize database
+from odoo.addons.web.controllers.utils import ensure_db
 
 
 class HealthCheckFilter(logging.Filter):
